@@ -1420,10 +1420,10 @@ jQuery(function ($) {
 
 $('#SelectElement').on('change', function() {
   console.log(this.value)
-  var oldprice = this.value*23850;
-  var price = this.value*14310;
+  var oldprice = this.value*30000;
+  var price = this.value*15000;
   if(this.value>=50){
-    price=this.value*11925;
+    price=this.value*12000;
   }
   $("#change-price").text(price.toLocaleString('fr'))
   $("#old-price").text(oldprice.toLocaleString('fr'))

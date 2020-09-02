@@ -66,7 +66,7 @@
                 <ul class="nav navbar-nav ml-auto menu__list">
                     <li class="nav-item menu__item"> <a href="#home" class="scroll nav-link menu__link">Accueil</a>
                     </li>
-                    <li class="nav-item menu__item"> <a href="#about" class="scroll nav-link menu__link">about</a>
+                    <li class="nav-item menu__item"> <a href="#about" class="scroll nav-link menu__link">Découvrez</a>
                     </li>
                     <li class="nav-item menu__item"> <a href="#pricing" class="scroll nav-link menu__link">Acheter</a>
                     </li>
@@ -98,7 +98,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-12 text-center">
-                        <a href="index.html" class="logo-full mb-5 mb-xs-2rem"><img src="images/side-logo-black.png" alt=""></a>
+                        <a href="index.html" class="logo-full mb-5 mb-xs-2rem"><img src="images/logoz-a.png" alt=""></a>
                     </div>
                     <div class="col-md-12 text-left mt-5 mb-5">
                         <ul class="side-nav-content heading_space">
@@ -106,16 +106,13 @@
                             <div class="nav-item"><span class="d-inline-block">01.</span> <a href="#home" class="scroll nav-link rotate">Accueil</a></div>
                             </li>
                             <li class="full-menu-hover">
-                            <div class="nav-item"><span class="d-inline-block">02.</span> <a href="#about" class="scroll nav-link">about</a></div>
+                            <div class="nav-item"><span class="d-inline-block">02.</span> <a href="#about" class="scroll nav-link">Découvrez</a></div>
                             </li>
                             <li class="full-menu-hover">
-                            <div class="nav-item"><span class="d-inline-block">05.</span> <a href="#pricing" class="scroll nav-link">Acheter</a></div>
+                            <div class="nav-item"><span class="d-inline-block">03.</span> <a href="#pricing" class="scroll nav-link">Acheter</a></div>
                             </li>
                             <li class="full-menu-hover">
-                            <div class="nav-item"><span class="d-inline-block">06.</span> <a href="#client" class="scroll nav-link">client</a></div>
-                            </li>
-                            <li class="full-menu-hover">
-                            <div class="nav-item"><span class="d-inline-block">08.</span> <a href="#contact" class="scroll nav-link">contact</a>
+                            <div class="nav-item"><span class="d-inline-block">04.</span> <a href="#contact" class="scroll nav-link">Contact</a>
                             </div>
                             </li>
                         </ul>
@@ -260,7 +257,7 @@
                          data-transform_out="s:500;e:Power2.easeInOut;s:500;e:Power2.easeInOut;"
                           data-splitin="none" data-splitout="none" data-responsive_offset="on"  data-start="1500"
                          style="z-index: 17; max-width: 960px">
-                        <a href="javascript:void(0)" class="btn-setting btn-hvr-setting-main btn-grey">Achetez
+                        <a href="#pricing" class="btn-setting btn-hvr-setting-main btn-grey scroll">Achetez
                             <span class="btn-hvr-setting">
 						     <span class="btn-hvr-setting-inner">
 							 <span class="btn-hvr-effect"></span>
@@ -290,7 +287,7 @@
                          data-frames='[{"delay":2500,"speed":1000,"sfxcolor":"#ffffff","sfx_effect":"blockfromleft","frame":"0","from":"z:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"sfxcolor":"#ffffff","sfx_effect":"blocktoleft","frame":"999","to":"z:0;","ease":"Power4.easeOut"}]'
                          data-textAlign="['center','center','center','center']"
 
-                         style="z-index:7; white-space: nowrap; font-weight: 200; color: #18191d; font-family: 'Montserrat', sans-serif;text-transform:capitalize">we make</div>
+                         style="z-index:7; white-space: nowrap; font-weight: 200; color: #18191d; font-family: 'Montserrat', sans-serif;text-transform:capitalize">Soyez</div>
                     <!-- LAYER NR. 8 -->
                     <div class="tp-caption tp-resizeme rs-parallaxlevel-2 d-none d-xs-block"
                          id="slide-964-layer-21"
@@ -309,7 +306,7 @@
                          data-frames='[{"delay":2700,"speed":1000,"sfxcolor":"#ffffff","sfx_effect":"blockfromleft","frame":"0","from":"z:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"sfxcolor":"#ffffff","sfx_effect":"blocktoleft","frame":"999","to":"z:0;","ease":"Power4.easeOut"}]'
                          data-textAlign="['left','left','center','center']"
 
-                         style="z-index:8; white-space: nowrap; font-weight: 700; color: #18191d; font-family: 'Montserrat', sans-serif;text-transform:capitalize">creative design</div>
+                         style="z-index:8; white-space: nowrap; font-weight: 700; color: #18191d; font-family: 'Montserrat', sans-serif;text-transform:capitalize">Tranquille</div>
                     <!-- LAYER NR. 9 -->
                     <div class="tp-caption tp-resizeme rs-parallaxlevel-2 d-none d-xs-block"
                          id="slide-964-layer-23"
@@ -328,7 +325,7 @@
                          data-textAlign="['left','left','center','center']"
 
                          style="z-index: 16; max-width: 960px; font-weight: 300; color: #18191d;font-family: 'Open Sans', sans-serif;">
-                        Awaza is a design studio founded in London. Nowadays, we've grown and expanded our services.
+                        Protégez-vous contre les cyberattaques les plus sophistiquées, grâce à notre solution de sécurité multi-périphérique.
                     </div>
                     <!-- LAYER NR. 10 -->
                     <div class="tp-caption rs-parallaxlevel-2 d-none d-xs-block"
@@ -345,10 +342,10 @@
                          data-transform_out="s:500;e:Power2.easeInOut;s:500;e:Power2.easeInOut;"
                          data-splitin="none" data-splitout="none" data-responsive_offset="on"  data-start="1500"
                          style="z-index: 17; max-width: 960px">
-                        <a href="javascript:void(0)" class="btn-setting btn-hvr-setting-main btn-pink">learn more
+                        <a href="#pricing" class="btn-setting btn-hvr-setting-main btn-pink">Achetez
                             <span class="btn-hvr-setting">
-						     <span class="btn-hvr-setting-inner">
-							 <span class="btn-hvr-effect"></span>
+                             <span class="btn-hvr-setting-inner">
+                             <span class="btn-hvr-effect"></span>
                              <span class="btn-hvr-effect"></span>
                              <span class="btn-hvr-effect"></span>
                              <span class="btn-hvr-effect"></span>
@@ -479,7 +476,7 @@
 
                          data-start="2000" data-splitin="none" data-splitout="none" data-responsive_offset="on"
                          style="min-width: 960px; max-width: 960px;">
-                        <a href="javascript:void(0)" class="btn-setting btn-hvr-setting-main btn-yellow">Acheter
+                        <a href="#pricing" class="btn-setting btn-hvr-setting-main btn-yellow scroll">Acheter
                             <span class="btn-hvr-setting btn-hvr-white">
 						     <span class="btn-hvr-setting-inner">
 							 <span class="btn-hvr-effect"></span>
@@ -491,14 +488,15 @@
                         </a>
                     </div>
 
+
                     <!-- LAYER NR. 7 -->
                     <div class="tp-caption tp-resizeme rs-parallaxlevel-2 d-none d-xs-block"
                          id="slide-964-layer-35"
 
                          data-x="['left','left','center','center']" data-hoffset="['52','52','-5','-1']"
                          data-y="['middle','middle','middle','middle']" data-voffset="['-160','-160','-160','-120']"
-                         data-fontsize="['60','60','60','40']"
-                         data-lineheight="['60','60','60','40']"
+                         data-fontsize="['40','40','40','30']"
+                         data-lineheight="['40','40','40','30']"
                          data-width="none"
                          data-height="none"
                          data-whitespace="nowrap"
@@ -510,14 +508,14 @@
                          data-frames='[{"delay":500,"speed":2000,"frame":"0","from":"opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
                          data-textAlign="['center','center','center','center']"
 
-                         style="z-index:7; white-space: nowrap; font-weight: 200; color: #18191d; font-family: 'Montserrat', sans-serif;text-transform:capitalize">Let's change</div>
+                         style="z-index:7; white-space: nowrap; font-weight: 200; color: #18191d; font-family: 'Montserrat', sans-serif;text-transform:capitalize">Protégeant plus de</div>
                     <!-- LAYER NR. 8 -->
                     <div class="tp-caption tp-resizeme rs-parallaxlevel-2 d-none d-xs-block"
                          id="slide-964-layer-36"
-                         data-x="['left','left','center','center']" data-hoffset="['52','52','-15','0']"
+                         data-x="['right','right','center','center']" data-hoffset="['42','42','-15','0']"
                          data-y="['middle','middle','middle','middle']" data-voffset="['-80','-80','-80','-60']"
-                         data-fontsize="['60','60','60','40']"
-                         data-lineheight="['70','70','70','50']"
+                         data-fontsize="['35','35','35','25']"
+                         data-lineheight="['35','35','35','25']"
                          data-width="none"
                          data-height="none"
                          data-whitespace="nowrap"
@@ -529,7 +527,7 @@
                          data-frames='[{"delay":500,"speed":2000,"frame":"0","from":"opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
                          data-textAlign="['center','center','center','center']"
 
-                         style="z-index:8; white-space: nowrap; font-weight: 700; color: #18191d; font-family: 'Montserrat', sans-serif;"> More Creative </div>
+                         style="z-index:8; white-space: nowrap; font-weight: 700; color: #18191d; font-family: 'Montserrat', sans-serif;">100 000 000 personnes</div>
                     <!-- LAYER NR. 9 -->
                     <div class="tp-caption tp-resizeme rs-parallaxlevel-2 d-none d-xs-block"
                          id="slide-964-layer-37"
@@ -548,7 +546,7 @@
                          data-textAlign="['left','left','center','center']"
 
                          style="z-index: 16; max-width: 960px; font-weight: 300; color: #18191d;font-family: 'Open Sans', sans-serif;">
-                        Awaza is a design studio founded in London. Nowadays, we've grown and expanded our services.
+                        Nos solutions de sécurité de pointe s’appuient sur une protection de niveau entreprise pour sécuriser des millions d'ordinateurs et d'appareils mobiles dans le monde entier.
                     </div>
                     <!-- LAYER NR. 10 -->
                     <div class="tp-caption rs-parallaxlevel-2 d-none d-xs-block"
@@ -564,10 +562,10 @@
 
                          data-start="2000" data-splitin="none" data-splitout="none" data-responsive_offset="on"
                          style="min-width: 960px; max-width: 960px;">
-                        <a href="javascript:void(0)" class="btn-setting btn-hvr-setting-main btn-yellow">learn more
+                        <a href="#pricing" class="btn-setting btn-hvr-setting-main btn-yellow scroll">Acheter
                             <span class="btn-hvr-setting btn-hvr-white">
-						     <span class="btn-hvr-setting-inner">
-							 <span class="btn-hvr-effect"></span>
+                             <span class="btn-hvr-setting-inner">
+                             <span class="btn-hvr-effect"></span>
                              <span class="btn-hvr-effect"></span>
                              <span class="btn-hvr-effect"></span>
                              <span class="btn-hvr-effect"></span>
@@ -692,9 +690,8 @@
                         </div>
                         <div class="price">
                             <div class="row">
-                                <div class="col-lg-10">
-                                    <form>
-                                    <div class="row">
+                                <div class="col-lg-6">
+                                        <?php /*
                                         <div class="col-lg-7">
                                          <div class="form-group">
                                             <select class="form-control" id="SelectElement">
@@ -707,9 +704,12 @@
                                             </select>
                                           </div>
                                         </div>
-                                        <div class="col-lg-5">                                      
+                                        */ ?>
+                                <h2 class="position-relative"><span id="old-price">30 000</span> <span id="change-price">15 000</span> <span class="dollar"> F</span><span class="month">/ An</span></h2>
+                                </div>
+                                <div class="col-lg-4">                                      
                                           <div class="form-group">
-                                              <button type="button" id="achatOM" class="btn-setting btn-hvr-setting-main btn-yellow text-capitalize"> <i class="ti ti-shopping-cart"></i> Acheter
+                                              <button type="button" id="achatOM" class="btn-setting btn-hvr-setting-main btn-yellow text-capitalize" data-fancybox data-src="#hidden-content" href="javascript:;"> <i class="ti ti-shopping-cart"></i> Acheter
                                                 <span class="btn-hvr-setting">
                                                  <span class="btn-hvr-setting-inner">
                                                  <span class="btn-hvr-effect"></span>
@@ -720,12 +720,54 @@
                                                 </span>
                                               </button>
                                           </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <h2 class="position-relative"><span id="old-price">23 850</span> <span id="change-price">14 310</span> <span class="dollar"> F</span><span class="month">/ An</span></h2>
 
+                                        <div style="display: none;" id="hidden-content">
+                                            <div class="row">
+                                                <form>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputNom">Nom</label>
+                                                                <input type="text" class="form-control" id="InputNom" aria-describedby="emailHelp" placeholder="Entrez votre Nom" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputPrenom">Prenom</label>
+                                                                <input type="text" class="form-control" id="InputPrenom" aria-describedby="emailHelp" placeholder="Entrez votre Prénom" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1">Email</label>
+                                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre email" required>
+                                                                <small id="emailHelp" class="form-text text-muted">Nous vous enverrons votre code de licence sur cette adresse</small>
+                                                              </div>
+                                                              <div class="form-group">
+                                                                <label for="exampleInputTel">Numéro Téléphone</label>
+                                                                <input type="tel" class="form-control" id="exampleInputTel" placeholder="Entrez votre numéro de téléphone" required>
+                                                              </div>
+                                                              <table class="table">
+                                                                  <thead>
+                                                                    <tr>
+                                                                      <th scope="col">#</th>
+                                                                      <th scope="col">Produit</th>
+                                                                      <th scope="col">Montant</th>
+                                                                    </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <th scope="row">1</th>
+                                                                      <td>ZoneAlarm - Extreme Security</td>
+                                                                      <td>15.000 Fcfa</td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table>
+                                                              <button type="submit" class="btn btn-success btn-lg btn-block">Procéder au paiement de 15.000 Fcfa par OrangeMoney</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                  </div>
+
+
                                 <div class="col-lg-2">
                                     <img src="images/orange-money.png" alt="Orange Money"/>
                                 </div>

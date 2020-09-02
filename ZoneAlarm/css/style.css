@@ -498,8 +498,16 @@ button:hover, button:active, button:focus {
 #achatOM{
     font-size:30px;
 }
-#achatOM:hover{
+#achatOM:hover,#achatOM:active, #achatOM:focus{
     color:#18191d;
+}
+
+#hidden-content{
+    width:70%;
+}
+
+#hidden-content>.row>form{
+    width:100%;
 }
 
 .price .form-control{
