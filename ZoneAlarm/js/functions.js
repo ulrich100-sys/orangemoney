@@ -1429,4 +1429,11 @@ $('#SelectElement').on('change', function() {
   $("#old-price").text(oldprice.toLocaleString('fr'))
 });
 
+$("#formPaymentOM").submit(function(e){
+    e.preventDefault();
+    $.get("paiement-interne.php", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+});
+
 });

@@ -723,7 +723,7 @@
 
                                         <div style="display: none;" id="hidden-content">
                                             <div class="row">
-                                                <form>
+                                                <form id="formPaymentOM">
                                                     <div class="col-lg-12">
                                                         <div class="form-group">
                                                             <div class="form-group">
@@ -759,7 +759,7 @@
                                                                     </tr>
                                                                   </tbody>
                                                                 </table>
-                                                              <button type="submit" class="btn btn-success btn-lg btn-block">Procéder au paiement de 15.000 Fcfa par OrangeMoney</button>
+                                                              <button type="submit" class="btn btn-success btn-lg btn-block" id="paiementOrangeMoney">Procéder au paiement de 15.000 Fcfa par OrangeMoney</button>
                                                         </div>
                                                     </div>
                                                 </form>

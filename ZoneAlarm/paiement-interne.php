@@ -1,82 +1,119 @@
-<?php session_start(); ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
+session_start();
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+//ngma4782_azYnote
+//ngma4782_zaYnote
+//;Gt8.)hq24m5
 
-    <title>Paiement iDocta</title>
-  </head>
-  <body>
+class Ynote_Orangemoney{
 
-    <div class="container">
-       <div class="row">
-          <div class="col-sm-2">
-            <img src="http://www.idocta.africa/wp-content/uploads/2019/07/logo-transparent.png" alt="Logo iDocta" class="img-fluid"/>
-          </div>
-          <div class="col-sm-10">
-            <h1>Achetez ZoneAlarm</h1>
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-sm">
-          <?php if(isset($_SESSION["PaymentError"])){ ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h3> Votre paiement a échoué</h3>
-              <p> Merci de vérifier votre formulaire et les données entrées</p>
-              <p>
-                <strong>Erreur de paiement :</strong> <?php echo $_SESSION["PaymentError"] ?><br/>
-                <strong>Erreur Message :</strong> <?php echo $_SESSION["PaymentMessage"] ?>
-              </p>
-            </div>
-          <?php 
-                unset($_SESSION["PaymentError"]);
-              }
-          ?>
+    protected $urlAPI="https://apiw.orange.cm/";
+    protected $bearerOM = "Z3FQcmdYdzZKV1BvWlNHa3RpZDhiaXI4dk9JYTpZNGZudHMwOG56cXBYZ2FoNDBWdmtjb01qMnNh";
+    
+    private $api_username="YNOTEPREPROD";
+    private $api_password="YNOTEPREPROD2020";
 
-            <form action="paiement-traitement.php" method="POST">
-              <div class="form-group">
-                <label for="exampleInputNom"><strong>Nom</strong></label>
-                <input type="text" class="form-control" id="exampleInputNom" aria-describedby="emailHelp" name="exampleInputNom" required <?php 
-                        if(isset($_SESSION["exampleInputNom"])){
-                          echo 'value="'.$_SESSION["exampleInputNom"].'"';
-                      } ?>
-                      >
-              </div>
-              <div class="form-group">
-                <label for="exampleInputNom"><strong>Prénom</strong></label>
-                  <input type="text" class="form-control" id="exampleInputPrenom" aria-describedby="emailHelp" name="exampleInputPrenom" required <?php 
-                          if(isset($_SESSION["exampleInputPrenom"])){
-                            echo 'value="'.$_SESSION["exampleInputPrenom"].'"';
-                        } ?>
-                        >
-              </div>
-              <div class="form-group">
-                <label for="exampleInputNom"><strong>Email</strong></label>
-                  <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="exampleInputEmail" required <?php 
-                          if(isset($_SESSION["exampleInputEmail"])){
-                            echo 'value="'.$_SESSION["exampleInputEmail"].'"';
-                        } ?>
-                        >
-              </div>
-              
-              <button type="submit" class="btn btn-primary btn-block ">Envoyer</button>
-            </form>
-          </div>
-      </div>
-    </div>
+    private $channelUserMsisdn="694849648";
+    private $pinNumber="2222";
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
-</html>
+    public $b64Auth="";
+    public $token="";
+    public $payToken="";
+
+    public function getToken(){
+      
+        $request_headers = array();
+        $request_headers[] = 'Authorization: Basic '.$this->bearerOM;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->urlAPI."token");
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,  "grant_type=client_credentials");
+        curl_setopt($ch, CURLOPT_HTTPHEADER,  $request_headers);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        $response = explode(',',$response);
+        $access_token = str_replace('"','',explode(':',$response[0])[1]);
+        $returnCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $information = curl_getinfo($ch);
+        curl_close($ch);
+        $this->token=$access_token;
+        return $access_token;
+    }
+
+    public function getMpInit(){
+        
+        $this->b64Auth= base64_encode($this->api_username.":".$this->api_password);
+        $request_headers = array();
+        $request_headers[] = 'Authorization: Bearer '.$this->token;
+        array_push($request_headers,"X-AUTH-TOKEN: ".$this->b64Auth);
+
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->urlAPI."omcoreapis/1.0.2/mp/init");
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,  $request_headers);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        $payToken = json_decode($response,true);
+        $this->payToken = $payToken["data"]["payToken"];
+        return $this->payToken;
+    }
+
+    public function payAction(){
+        $request_headers[] = 'Authorization: Bearer '.$this->token;
+        array_push($request_headers,"X-AUTH-TOKEN: ".$this->b64Auth);
+        
+        $mysqli = new mysqli("109.234.164.131", "ngma4782_zaYnote", ";Gt8.)hq24m5", "ngma4782_azYnote");
+        $notification = "http://az.y-note.cm/paiement-notification.php";
+
+        $result = $mysqli->query("INSERT INTO `Orders` (`nomClient`, `prenomClient`, `telClient`,`channelUserMsisdn`,`amount`,`notifUrl`,`payToken`) VALUES ('nom', 'prenom', '123','".$this->channelUserMsisdn."','15000','".$notification."','".$this->payToken."');");
+        var_dump($result);
+
+        $this->_post= array(
+          "channelUserMsisdn" => $this->channelUserMsisdn,
+          "pin" => $this->pinNumber,
+          "subscriberMsisdn" => "693600164",
+          "orderId" => "1234",
+          "amount" => "15000",
+          "notifUrl" => $notification,
+          "description" => "Achat Zone Alarm ",
+          "payToken" => $this->payToken,
+        );
+
+        $data_string = json_encode($this->_post);
+        /*
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->urlAPI."omcoreapis/1.0.2/mp/pay");
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,  $request_headers);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        */
+
+        //$response = curl_exec($ch);
+        //$payResponse = json_decode($response,true);
+        //var_dump($payResponse);
+        
+    }
+
+}
+
+$om = new Ynote_Orangemoney();
+$om->getToken();
+//echo "<strong>Token : </strong>".$om->token."<br/>";
+$om->getMpInit();
+//echo "<strong>Pay Token : </strong>".$om->payToken;
+$om->payAction();
