@@ -89,14 +89,12 @@ class Ynote_Orangemoney{
         }else{
             //echo "Error: " . $sql . "<br>" . mysqli_error($mysqli);
         }
-        mysqli_close($mysqli);  
 
-        
         $this->_post= array(
           "channelUserMsisdn" => $this->channelUserMsisdn,
           "pin" => $this->pinNumber,
           "subscriberMsisdn" => $telClient,
-          "orderId" => "order".$latest_id,
+          "orderId" => "order-".$latest_id,
           "amount" => "15000",
           "notifUrl" => $notification,
           "description" => "Achat Zone Alarm Security",
@@ -121,7 +119,10 @@ class Ynote_Orangemoney{
 
         $response = curl_exec($ch);
         $payResponse = json_decode($response,true);
-        //var_dump($payResponse);
+
+        $request = "UPDATE Orders SET status = '".$payResponse["data"]["status"]."' WHERE `orderId` = ".$latest_id.";";
+        $mysqli->query($request);
+        mysqli_close($mysqli);
         echo json_encode($payResponse["data"]);
     }
 
