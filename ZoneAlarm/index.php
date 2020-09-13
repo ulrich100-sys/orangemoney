@@ -736,12 +736,12 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">Email</label>
-                                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre email" required>
+                                                                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre email" required>
                                                                 <small id="emailHelp" class="form-text text-muted">Nous vous enverrons votre code de licence sur cette adresse</small>
                                                               </div>
                                                               <div class="form-group">
                                                                 <label for="exampleInputTel">Numéro Téléphone</label>
-                                                                <input type="tel" class="form-control" id="exampleInputTel" placeholder="Entrez votre numéro de téléphone" required>
+                                                                <input type="tel" class="form-control" id="InputTel" placeholder="Entrez votre numéro de téléphone" required>
                                                               </div>
                                                               <table class="table">
                                                                   <thead>
@@ -759,7 +759,9 @@
                                                                     </tr>
                                                                   </tbody>
                                                                 </table>
-                                                              <button type="submit" class="btn btn-success btn-lg btn-block" id="paiementOrangeMoney">Procéder au paiement de 15.000 Fcfa par OrangeMoney</button>
+                                                              <button type="button" class="btn btn-success btn-lg btn-block" id="paiementOrangeMoney">
+                                                                  Procéder au paiement de 15.000 Fcfa par OrangeMoney
+                                                              </button>
                                                         </div>
                                                     </div>
                                                 </form>

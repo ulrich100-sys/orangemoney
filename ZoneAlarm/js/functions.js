@@ -1429,10 +1429,30 @@ $('#SelectElement').on('change', function() {
   $("#old-price").text(oldprice.toLocaleString('fr'))
 });
 
-$("#formPaymentOM").submit(function(e){
+$("#paiementOrangeMoney").click(function(e){
     e.preventDefault();
-    $.get("paiement-interne.php", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
+
+    $("#paiementOrangeMoney").html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Chargement...').addClass('disabled');
+
+    $.post("paiement-interne.php",
+        {
+            nom: $("#InputNom").val(),
+            prenom: $("#InputPrenom").val(),
+            email: $("#InputEmail1").val(),
+            tel: $("#InputTel").val()
+        }, function(data, status){
+        console.log(data)
+        console.log(data.status);
+        $("#paiementOrangeMoney").html('Procéder au paiement de 15.000 Fcfa par OrangeMoney').removeClass('disabled');
+        if(data.status=="PENDING"){
+            $.fancybox.close();
+            $.fancybox.open('<div>Vous avez reçu les éléments de paiement sur ce numéro de téléphone</div>');
+            console.log("Confirmer");
+        }
+        if(data.status=="FAILED"){
+            $.fancybox.open('<div"><h2>Erreur</h2>Vérifier les éléments de votre formulaire</div>');
+            console.log("Erreur");
+        }
     });
 });
 
