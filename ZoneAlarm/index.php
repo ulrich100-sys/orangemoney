@@ -75,9 +75,9 @@
                 </ul>
             </div>
             <div class="header-social d-none d-lg-inline-block">
-                <a href="javascript:void(0)" class="facebook-text-hvr"><i class="ti ti-facebook" aria-hidden="true"></i></a>
-                <a href="javascript:void(0)" class="twitter-text-hvr"><i class="ti ti-twitter-alt" aria-hidden="true"></i></a>
-                <a href="javascript:void(0)" class="linkedin-text-hvr"><i class="ti ti-linkedin" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/YnoteCameroun/" class="facebook-text-hvr" target="_blank"><i class="ti ti-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/ynote_cm" class="twitter-text-hvr" target="_blank"><i class="ti ti-twitter-alt" aria-hidden="true"></i></a>
+                <a href="https://fr.linkedin.com/company/y-note" class="linkedin-text-hvr" target="_blank"><i class="ti ti-linkedin" aria-hidden="true"></i></a>
             </div>
             <!-- side menu open button -->
                 <a class="menu_bars d-inline-block menu-bars-setting">
@@ -119,9 +119,9 @@
                     </div>
                     <div class="col-md-12 mt-3">
                         <div class="side-nav-social">
-                            <a href="javascript:void(0)" class="facebook-bg-hvr"><i class="ti ti-facebook" aria-hidden="true"></i></a>
-                            <a href="javascript:void(0)" class="twitter-bg-hvr"><i class="ti ti-twitter-alt" aria-hidden="true"></i></a>
-                            <a href="javascript:void(0)" class="linkedin-bg-hvr"><i class="ti ti-linkedin" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/YnoteCameroun/" class="facebook-bg-hvr" target="_blank"><i class="ti ti-facebook" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/ynote_cm" class="twitter-bg-hvr" target="_blank"><i class="ti ti-twitter-alt" aria-hidden="true"></i></a>
+                            <a href="https://fr.linkedin.com/company/y-note" class="linkedin-bg-hvr" target="_blank"><i class="ti ti-linkedin" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -740,7 +740,7 @@
                                                                 <small id="emailHelp" class="form-text text-muted">Nous vous enverrons votre code de licence sur cette adresse</small>
                                                               </div>
                                                               <div class="form-group">
-                                                                <label for="exampleInputTel">Numéro Téléphone</label>
+                                                                <label for="exampleInputTel">Numéro Téléphone (Orange Cameroun Uniquement)</label>
                                                                 <input type="tel" class="form-control" id="InputTel" placeholder="Entrez votre numéro de téléphone" required>
                                                               </div>
                                                               <table class="table">
@@ -827,8 +827,9 @@
                       <h2> Y-Note</h2>
                       <p> Vous avez des besoins particuliers ? N'hésitez pas à nous contacter pour que nous puissions échanger sur votre sujet.</p>
                   </div>
-                  <div class="col-md-12 p-0">
-                      <div class="col-lg-12 col-md-12 col-sm-12 p-0 float-left">
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+                <div class="col-lg-12 col-md-12 col-sm-12 p-0 float-left">
                             <div class="contact-info sm-text-center">
                                 <h5 class="font-secondary font-weight-600 color-yellow text-capitalize">
                                     Yaoundé
@@ -847,58 +848,7 @@
                                 </div>
                             </div>
                         </div>
-                  </div>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
-                  <div class="text-left sm-text-center w-100 mt-sm-40px">
-                        <h3 class="font-30 color-black font-weight-500 text-capitalize mt-3 mb-2rem"> Laissez nous un message</h3>
-                        <p class="mb-2rem">
-                            Merci de remplir le formulaire ci-dessous. Nous revenons vers vous dans les meilleurs délais</p>
-                    </div>
-                  <div class="company-contact-form">
-                      <form class="contact-form-outer" onsubmit="return false;">
-                          <div class="row">
-                              <div class="col-md-6 col-sm-12">
-                                  <div class="contact-form-textfield pb-4">
-                                      <input type="text" placeholder="Nom" class="form-control" required id="name" name="name">
-                                  </div>
-                              </div>
-                              <div class="col-md-6 col-sm-12">
-                                  <div class="contact-form-textfield pb-4">
-                                      <input type="email" placeholder="Email" class="form-control" required id="email" name="email">
-                                  </div>
-                              </div>
-                              <div class="col-md-6 col-sm-12">
-                                  <div class="contact-form-textfield pb-4">
-                                      <input type="tel" placeholder="N° Telephone" class="form-control" id="phone" name="phone">
-                                  </div>
-                              </div>
-                              <div class="col-md-6 col-sm-12">
-                                  <div class="contact-form-textfield pb-4">
-                                      <input type="text" placeholder="Sujet" class="form-control" required id="subject" name="subject">
-                                  </div>
-                              </div>
-                              <div class="col-lg-12">
-                                  <div class="contact-form-textfield pb-4">
-                                      <textarea placeholder="Message" class="form-control message" id="message" name="message"></textarea>
-                                  </div>
-                              </div>
-                              <div class="col-lg-12 pt-xs-25px">
-                                  <button type="submit" class="btn-setting btn-hvr-setting-main btn-yellow btn-hvr text-uppercase" id="submit_btn">Envoyez
-                                      <span class="btn-hvr-setting btn-hvr-pink">
-						     <span class="btn-hvr-setting-inner">
-							 <span class="btn-hvr-effect"></span>
-                             <span class="btn-hvr-effect"></span>
-                             <span class="btn-hvr-effect"></span>
-                             <span class="btn-hvr-effect"></span>
-                             </span>
-                            </span>
-                                  </button>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
+             </div>
           </div>
       </div>
     </section>
@@ -910,9 +860,9 @@
             <div class="row">
                  <div class="col-md-12 col-sm-12 text-center">
                     <ul class="footer-icons mb-4">
-                        <li><a href="javascript:void(0)" class="wow fadeInUp"><i class="ti ti-facebook"></i> </a> </li>
-                        <li><a href="javascript:void(0)" class="wow fadeInDown"><i class="ti ti-twitter"></i> </a> </li>
-                        <li><a href="javascript:void(0)" class="wow fadeInUp"><i class="ti ti-linkedin"></i> </a> </li>
+                        <li><a href="https://www.facebook.com/YnoteCameroun/" class="wow fadeInUp" target="_blank"><i class="ti ti-facebook"></i> </a> </li>
+                        <li><a href="https://twitter.com/ynote_cm" class="wow fadeInDown" target="_blank"><i class="ti ti-twitter"></i> </a> </li>
+                        <li><a href="https://fr.linkedin.com/company/y-note" class="wow fadeInUp" target="_blank"><i class="ti ti-linkedin"></i> </a> </li>
                     </ul>
                     <p class="copyrights mt-2 mb-2">© 2020 <a href="http://www.y-note.cm">Y-Note Cameroun</a></p>
                  </div>

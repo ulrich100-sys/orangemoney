@@ -1446,7 +1446,7 @@ $("#paiementOrangeMoney").click(function(e){
         $("#paiementOrangeMoney").html('Procéder au paiement de 15.000 Fcfa par OrangeMoney').removeClass('disabled');
         if(data.status=="PENDING"){
             $.fancybox.close();
-            $.fancybox.open('<div>Vous avez reçu les éléments de paiement sur ce numéro de téléphone</div>');
+            $.fancybox.open('<div>Vous avez reçu les éléments de paiement sur ce numéro de téléphone<br/>Après votre paiement, vous recevrez votre <strong>code d\'activation</strong> par email.</div>');
             console.log("Confirmer");
         }
         if(data.status=="FAILED"){

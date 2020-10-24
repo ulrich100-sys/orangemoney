@@ -1,15 +1,16 @@
 <?php
 set_time_limit(0);
+
 class Ynote_Orangemoney{
 
-    private $urlAPI="https://api-s1.orange.cm/";
-    private $bearerOM = "M3lZV0pxYWJhUjhIelhRUzk4VmVQeEg1NmFRYTpBMkF0OEJUQ2JQTnJ6X1M3VHhmOHRnWFhYandh";
+    private $urlAPI="https://apiw.orange.cm/";
+    private $bearerOM = "ck1mQWtaREVQYkZBclhURE1DNmpEbzlUYWpFYTpSMTlHemtoMk5kTE01U1Q3R1o2Z0RFRmxGNDRh";
     
-    private $api_username="YNOTEHEAD";
-    private $api_password="YNOTEHEAD2020";
+    private $api_username="YNOTEPREPROD";
+    private $api_password="YNOTEPREPROD2020";
 
-    private $channelUserMsisdn="696415476";
-    private $pinNumber="9875";
+    private $channelUserMsisdn="691301143";
+    private $pinNumber="2222";
 
     private $b64Auth="";
     private $token="";
@@ -19,6 +20,7 @@ class Ynote_Orangemoney{
     public $dbUser="ngma4782_zaYnote";
     public $dbPassword=";Gt8.)hq24m5";
     public $dbBase="ngma4782_azYnote";
+
     public function __construct() {
         $this->getToken();
     }
@@ -89,7 +91,7 @@ class Ynote_Orangemoney{
             echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
 
-        $request = "INSERT INTO Orders (nomClient, prenomClient,telClient,channelUserMsisdn,amount,notifUrl,payToken,emailClient) VALUES ('".$nom."', '".$prenom."', '".$telClient."','".$this->channelUserMsisdn."','15000','".$notification."','".$this->payToken."','".$email."');";
+        $request = "INSERT INTO Orders (nomClient, prenomClient,telClient,channelUserMsisdn,amount,notifUrl,payToken,emailClient) VALUES ('".$nom."', '".$prenom."', '".$telClient."','".$this->channelUserMsisdn."','1','".$notification."','".$this->payToken."','".$email."');";
 
 
         if($mysqli->query($request)){
@@ -104,7 +106,7 @@ class Ynote_Orangemoney{
           "pin" => $this->pinNumber,
           "subscriberMsisdn" => $telClient,
           "orderId" => "order-".$latest_id,
-          "amount" => "15000",
+          "amount" => "1",
           "notifUrl" => $notification,
           "description" => "Achat Zone Alarm Security",
           "payToken" => $this->payToken,
