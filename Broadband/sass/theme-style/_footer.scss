@@ -1,0 +1,209 @@
+footer {
+    &.layout-1 {
+        background-color: #111;
+        padding: 150px 0px;
+
+
+        .nile-widget {
+            margin-right: 40px;
+            &.about-me-widget {
+                .content {
+                    color: #999;
+                    margin-top: 30px;
+                }
+            }
+            ul.footer-menu {
+                li {
+                    list-style: none;
+                    a {
+                        color: #999;
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-2 {
+        background-color: #000;
+        .footer-output {
+            background-color: #333;
+            padding: 120px 0px;
+
+            .nile-widget {
+                margin-right: 40px;
+                &.about-me-widget {
+                    .content {
+                        color: #999;
+                        margin-top: 30px;
+                    }
+                }
+                ul.footer-menu {
+                    li {
+                        list-style: none;
+                        a {
+                            color: #999;
+                            &:hover {
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .copy-right {
+            padding: 40px 0px;
+            .copyright-text {
+                color: #ccc;
+                line-height: 35px;
+            }
+        }
+        ul.social-media {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            float: right;
+            li {
+                margin-left: 8px;
+                a {
+                    color: #a19da6;
+                    font-size: 13px;
+                    width: 30px;
+                    text-align: center;
+                    padding: 3px;
+                    background-color: #111;
+                    border-radius: 50%;
+                    display: inline-block;
+                    -webkit-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    -moz-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    &:hover {
+                        background-color: $mainColor;
+                        color: #fff;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &.layout-3 {
+        background-color: #fff;
+        .footer-output {
+            background-color: #f2f2f2;
+            padding: 120px 0px;
+
+            .nile-widget {
+                margin-right: 40px;
+                &.about-me-widget {
+                    .content {
+                        color: #555;
+                        margin-top: 30px;
+                    }
+                }
+                ul.footer-menu {
+                    li {
+                        list-style: none;
+                        a {
+                            color: #333;
+                            &:hover {
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .copy-right {
+            padding: 40px 0px;
+            .copyright-text {
+                color: #222;
+                line-height: 35px;
+            }
+        }
+        ul.social-media {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            float: right;
+            li {
+                margin-left: 8px;
+                a {
+                    color: #222;
+                    font-size: 13px;
+                    width: 30px;
+                    text-align: center;
+                    padding: 3px;
+                    background-color: #eee;
+                    border-radius: 50%;
+                    display: inline-block;
+                    -webkit-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    -moz-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    &:hover {
+                        background-color: $mainColor;
+                        color: #fff;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &.layout-4 {
+        background-color: #111;
+        padding: 150px 0px;
+        text-align: center;
+        ul.footer-list {
+            margin: 30px 0px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            list-style: none;
+            li {
+                display: inline-block;
+                a {
+                    color: #ccc;
+                    display: block;
+                    padding: 20px 10px;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        ul.social-media {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            text-align: center;
+            li {
+                margin-left: 8px;
+                a {
+                    color: #a19da6;
+                    font-size: 13px;
+                    width: 30px;
+                    text-align: center;
+                    padding: 3px;
+                    background-color: #222;
+                    border-radius: 50%;
+                    display: inline-block;
+                    -webkit-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    -moz-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+                    &:hover {
+                        background-color: $mainColor;
+                        color: #fff;
+                    }
+                }
+
+            }
+        }
+        .copyright-text {
+            margin-top: 15px;
+            color: #c6cccc;
+        }
+    }
+
+}

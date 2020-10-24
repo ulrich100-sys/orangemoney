@@ -1,0 +1,69 @@
+$mainColor: #50627a;
+$secondColor:#ffc352;
+$thirdColor:#f0b800;
+
+$baColor1: #fffee5;
+$baColor2: #e5fad7;
+$baColor3: #fef1f4;
+
+
+.firo-title.layout-3 h2.title:before {
+    background-color: $secondColor;
+}
+
+
+.section-ba-1 {
+    background-color: #fff;
+}
+
+.section-ba-2 {
+    background-color: #f3f3f3;
+    background-image: url(../../../assets/img/ba_section_2.jpg);
+    background-size: cover;
+}
+
+.section-ba-3 {
+    background-color: #f3f3f3;
+}
+
+.about-me-banner {
+    background-image: url(http://placehold.it/1920x980);
+}
+
+.footer_1_ba {
+    background-color: #fff;
+    background-image: url(../../../assets/img/footer_1_ba.jpg);
+    background-size: cover;
+}
+
+
+.nile-page-title {
+    background-image: url(../../../assets/img/page-title.jpg);
+    background-size: cover;
+}
+
+
+.process-ba-1 {
+    background-color: #f5ad3f;
+}
+
+.process-ba-2 {
+    background-color: #570a74;
+}
+
+.process-ba-3 {
+    background-color: #26afc1;
+}
+
+.process-ba-4 {
+    background-color: #595959;
+}
+
+
+
+
+.fizo-call-action.layout-1 {
+    &:before {
+        background-image: url(http://placehold.it/1920x1200);
+    }
+}
