@@ -110,9 +110,26 @@ $baColor3: #fef1f4;
     }
 }
 
+footer{
+    a{
+        color: $mainColor;
+    }
+}
 
 .fizo-call-action.layout-1 {
     &:before {
         background-image: url(http://placehold.it/1920x1200);
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .padding-tb-120px{
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    footer.layout-1{
+    padding:10px 0px;
     }
 }

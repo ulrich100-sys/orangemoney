@@ -16,9 +16,9 @@ class Ynote_Orangemoney{
     private $payToken="";
 
     public $dbUrl="109.234.164.131";
-    public $dbUser="ngma4782_zaYnote";
-    public $dbPassword=";Gt8.)hq24m5";
-    public $dbBase="ngma4782_azYnote";
+    public $dbUser="ngma4782_broadband_paiement";
+    public $dbPassword="fjH#YJ8QZg0&";
+    public $dbBase="ngma4782_broadband_paiement";
     public function __construct() {
         $this->getToken();
     }

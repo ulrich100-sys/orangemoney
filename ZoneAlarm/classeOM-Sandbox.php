@@ -76,6 +76,12 @@ class Ynote_Orangemoney{
     }
 
     public function payAction($nom,$prenom,$email,$tel){
+        
+        $nom = $mysqli->real_escape_string($nom);
+        $prenom = $mysqli->real_escape_string($prenom);
+        $email = $mysqli->real_escape_string($email);
+        $tel = $mysqli->real_escape_string($tel);
+
         $this->getMpInit();
         $request_headers[] = 'Authorization: Bearer '.$this->token;
         array_push($request_headers,"X-AUTH-TOKEN: ".$this->b64Auth);

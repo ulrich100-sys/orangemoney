@@ -35,7 +35,7 @@ switch ($status) {
             $msg .= ' TXnid: '.$txnid."\n";           
 
             // send email
-            mail("m.ngoe@y-note.cm","Encaissement Orange Money iDocta",$msg);
+            mail("m.ngoe@y-note.cm","Encaissement Orange Money Broadband",$msg);
     break;
 default:
     echo "none";

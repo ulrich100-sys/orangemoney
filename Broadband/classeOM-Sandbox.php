@@ -17,9 +17,9 @@ class Ynote_Orangemoney{
     private $payToken="";
 
     public $dbUrl="109.234.164.131";
-    public $dbUser="ngma4782_zaYnote";
-    public $dbPassword=";Gt8.)hq24m5";
-    public $dbBase="ngma4782_azYnote";
+    public $dbUser="ngma4782_broadband_paiement";
+    public $dbPassword="fjH#YJ8QZg0&";
+    public $dbBase="ngma4782_broadband_paiement";
 
     public function __construct() {
         $this->getToken();
@@ -75,7 +75,7 @@ class Ynote_Orangemoney{
         return $this->payToken;
     }
 
-    public function payAction($nom,$prenom,$email,$tel){
+    public function payAction($nom,$numberInvoice,$tel,$amount){
         $this->getMpInit();
         $request_headers[] = 'Authorization: Bearer '.$this->token;
         array_push($request_headers,"X-AUTH-TOKEN: ".$this->b64Auth);
@@ -84,14 +84,20 @@ class Ynote_Orangemoney{
             return "{ 'error' : 'no payment Token'}";
         }
         $mysqli = new mysqli($this->dbUrl, $this->dbUser, $this->dbPassword, $this->dbBase);
-        $notification = "http://za.y-note.cm/paiement-notification.php";
+        
+        $nom = $mysqli->real_escape_string($nom);
+        $numberInvoice = $mysqli->real_escape_string($numberInvoice);
+        $tel = $mysqli->real_escape_string($tel);
+        $amount = $mysqli->real_escape_string($amount);
+
+        $notification = "https://www.broadband.cm/facture/paiement-notificationOM.php";
         $telClient=$tel;
 
         if ($mysqli->connect_errno) {
             echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
 
-        $request = "INSERT INTO Orders (nomClient, prenomClient,telClient,channelUserMsisdn,amount,notifUrl,payToken,emailClient) VALUES ('".$nom."', '".$prenom."', '".$telClient."','".$this->channelUserMsisdn."','1','".$notification."','".$this->payToken."','".$email."');";
+        $request = "INSERT INTO Orders (nomClient, numberInvoice,telClient,channelUserMsisdn,amount,notifUrl,payToken,method,status) VALUES ('".$nom."', '".$numberInvoice."', '".$telClient."','".$this->channelUserMsisdn."','".$amount."','".$notification."','".$this->payToken."','OrangeMoney','En Attente');";
 
 
         if($mysqli->query($request)){
@@ -106,9 +112,10 @@ class Ynote_Orangemoney{
           "pin" => $this->pinNumber,
           "subscriberMsisdn" => $telClient,
           "orderId" => "order-".$latest_id,
+          //"amount" => $amount,
           "amount" => "1",
           "notifUrl" => $notification,
-          "description" => "Achat Zone Alarm Security",
+          "description" => "Réglement Facture:"+$numberInvoice,
           "payToken" => $this->payToken,
         );
 
@@ -131,7 +138,8 @@ class Ynote_Orangemoney{
         $response = curl_exec($ch);
         $payResponse = json_decode($response,true);
 
-        $request = "UPDATE Orders SET status = '".$payResponse["data"]["status"]."' WHERE `orderId` = ".$latest_id.";";
+        $request = "UPDATE Orders SET status = '".$payResponse["data"]["status"]."' WHERE `idOrders` = ".$latest_id.";";
+
         $mysqli->query($request);
         mysqli_close($mysqli);
         echo json_encode($payResponse["data"]);

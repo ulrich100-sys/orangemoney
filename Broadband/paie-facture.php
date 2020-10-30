@@ -1,3 +1,19 @@
+<?php 
+
+require_once("classeInvoice.php");
+session_start();
+$invoice = new Ynote_Invoice();
+
+if(isset($_GET['id'])){
+    $invoiceInfo = $invoice->getInvoiceAction($_GET['id']); 
+    $_SESSION['invoice'] = $invoiceInfo;
+}else{
+    $_SESSION['invoice']=null;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr-FR">
 
@@ -29,6 +45,8 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <!-- fontawesome  -->
     <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+            <!-- Fancy Box CSS File -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
 
 </head>
 
@@ -71,7 +89,7 @@
                         <div class="col-xl-7 col-lg-9 col-md-12 position-inherit">
 
                             <ul id="menu-main" class="nav-menu flex-center float-xl-right text-lg-center link-padding-tb-18px dropdown-light">
-                                <li><a href="index.html">Paiement Facture</a></li>
+                                <li><a href="https://www.broadband.cm/">Accueil</a></li>
                             </ul>
 
                         </div>
@@ -92,31 +110,36 @@
 
     <div class="nile-page-title">
         <div class="container">
-            <h1>Régler votre facture</h1>
+            <h1>Réglez votre facture</h1>
         </div>
     </div>
 
 
 
     <section class="padding-tb-120px section-ba-2">
-
+        
         <div class="container">
+            <?php if($_SESSION['invoice']!=null){
+            ?>
             <div class="row">
 
                 <div class="col-lg-6">
                      <h3>Client : </h3>
                     <p>
                         <label><strong>Nom Client : </strong></label>
-                        xxxxxx
+                        <?php echo $_SESSION['invoice']["nomClient"]; ?>
+<input type="hidden" name="invoiceNom" id="invoiceNom" value="<?php echo $_SESSION['invoice']["nomClient"] ?>"/>
                     </p>
                     <p>
                         <label><strong>Numéro Facture : </strong></label>
-                        xxxxxx
+                        <?php echo $_SESSION['invoice']["invoiceNumber"]; ?>
+<input type="hidden" name="invoiceNumber" id="invoiceNumber" value="<?php echo $_GET['id']; ?>"/>
                     </p>
 
                     <p>
                         <label><strong>Montant à régler : </strong></label>
-                        xxxxxx
+                        <?php echo number_format ($_SESSION['invoice']["montant"], 0, ',', ' '); ?>
+                        <input type="hidden" name="amount" id="invoiceAmount" value="<?php echo $_SESSION['invoice']["montant"] ?>"/>
                     </p>
 
                 </div>
@@ -129,19 +152,41 @@
                         <div class="card">
                             <div class="card-header" id="headingOne3">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-block btn-link active" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3"><img src="assets/img/orangeMoney-small.png"/> <i class="fa fa-info-circle"></i> Paiement Orange Money</button>
+                                    <button class="btn btn-block btn-link active" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3"><img src="assets/img/orangeMoney-small.png"/> Paiement Orange Money</button>
                                 </h5>
                             </div>
                             <div id="collapseOne3" class="collapse show" aria-labelledby="headingOne3" data-parent="#accordion3" style="">
                                 <div class="card-body">
                                   
-                                   <form>
+                                   <form id="paiementOrangeMoney">
                                       <div class="form-group">
                                         <label for="exampleInputEmail1">Numéro de téléphone</label>
-                                        <input type="tel" class="form-control" id="exampleInputTel1" aria-describedby="Entrer un numéro de téléphone Camerounais du réseau Orange">
+                                        <input type="tel" class="form-control" id="orangeTel" aria-describedby="Entrer un numéro de téléphone Camerounais du réseau Orange" value="<?php echo $_SESSION['invoice']["telClient"]; ?>" minlength="9" required>
                                         <small id="emailHelp" class="form-text text-muted">Vous recevrez une demande d'appel de fond du montant correspondant</small>
                                       </div>
-                                      <button type="submit" class="btn btn-lg btn-block btn-success">Payer</button>
+                                      <button type="submit" id="submitOrangeForm" class="btn btn-lg btn-block btn-success">Payer</button>
+                                    </form>
+
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingTwo2">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-block btn-link active" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="true" aria-controls="collapseTwo2"><img src="assets/img/yup-logo-small.png"/>  Paiement Yup</button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordion3" style="">
+                                <div class="card-body">
+                                  
+                                   <form id="paiementYup">
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail1">Numéro de téléphone</label>
+                                        <input type="text" class="form-control" id="yupTel" aria-describedby="Entrer un numéro de téléphone Camerounais du réseau Orange" value="<?php echo $_SESSION['invoice']["telClient"]; ?>">
+                                        <small id="emailHelp" class="form-text text-muted">Vous recevrez une demande d'appel de fond du montant correspondant</small>
+                                      </div>
+                                      <button type="submit" id="submitYupForm" class="btn btn-lg btn-block btn-success">Payer</button>
                                     </form>
 
                                   </div>
@@ -165,6 +210,20 @@
                 </div>
 
             </div>
+
+            <?php }else{
+            ?>
+
+            <div class="row">
+                <div class="col-lg-12">
+                <h1>Vous n’avez pas de facture en attente de paiement</h1>
+                <p>
+                    Merci de contacter le service commercial de Broadband
+                </p>
+            </div>
+            </div>
+        <?php }
+        ?>
         </div>
 
     </section>
@@ -253,7 +312,10 @@
     <script src="assets/js/imagesloaded.min.js"></script>
     <script src="assets/js/jquery.filterizr.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+        <!-- Fancy Box JS File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <script src="assets/js/custom-0.0.5.js"></script>
 </body>
 
 </html>

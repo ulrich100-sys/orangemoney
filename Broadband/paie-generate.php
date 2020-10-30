@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="assets/css/animate.css">
     <!-- fontawesome  -->
     <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+        <!-- Fancy Box CSS File -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
 
 </head>
 
@@ -71,7 +73,7 @@
                         <div class="col-xl-7 col-lg-9 col-md-12 position-inherit">
 
                             <ul id="menu-main" class="nav-menu flex-center float-xl-right text-lg-center link-padding-tb-18px dropdown-light">
-                                <li><a href="index.html">Paiement Facture</a></li>
+                                <li><a href="https://www.broadband.cm/">Accueil</a></li>
                             </ul>
 
                         </div>
@@ -104,44 +106,44 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <form method="POST">
+                    <form method="POST" id="formFacture">
                       <div class="form-group row">
                         <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Nom du Client</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="exampleInputnom" >
+                            <input type="text" class="form-control" id="InputNom" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Email Client</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="exampleInputEmail" >
+                            <input type="email" class="form-control" id="InputEmail1" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="exampleInputEmail1" class="col-sm-2 col-form-label">N° Téléphone Client</label>
                         <div class="col-sm-10">
-                            <input type="tel" class="form-control" id="exampleInputTel" >
+                            <input type="tel" class="form-control" id="InputTel" minlength="9" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Numéro de Facture</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="exampleInputNumFacture" >
+                            <input type="text" class="form-control" id="InputInvoice" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Montant à régler</label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control" id="exampleInputMontant">
+                          <input type="number" class="form-control" id="InputAmount" minlength="2" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                          <input class="form-check-input" type="checkbox" id="gridCheck">
+                          <input class="form-check-input" type="checkbox" id="mailCheck">
                           <label class="form-check-label" for="gridCheck" class="col-sm-10 col-form-label">
                             Envoyer le mail au client
                           </label>
                       </div>
-                      <button type="submit" class="btn btn-lg btn-block btn-success">Enregistrer le réglement</button>
+                      <button type="submit" id="saveFactureButton" class="btn btn-lg btn-block btn-success">Enregistrer le réglement</button>
                     </form>
                 </div>
 
@@ -226,15 +228,15 @@
 
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/scrolla.jquery.min.js"></script>
-    <script src="assets/js/YouTubePopUp.jquery.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/imagesloaded.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/imagesloaded.min.js"></script>
-    <script src="assets/js/jquery.filterizr.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <!-- Fancy Box JS File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <script src="assets/js/custom-0.0.5.js"></script>
 </body>
 
 </html>

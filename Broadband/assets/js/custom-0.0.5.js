@@ -376,13 +376,6 @@
         }
     });
 
-    $("form").submit(function (event) {
-        event.preventDefault();
-        return false;
-    });
-
-    jQuery("a#yt-preview").YouTubePopUp();
-
 
     /* ------------------  Filtr Container ------------------ */
     if ($(".filtr-container")[0]) {
@@ -407,20 +400,6 @@
         }, 900, 'swing', function () {
             window.location.hash = target;
         });
-    });
-
-    /*==============================================================
-    wow animation - on scroll
-    ==============================================================*/
-    var wow = new WOW({
-        boxClass: 'wow',
-        animateClass: 'animated',
-        offset: 0,
-        mobile: false,
-        live: true
-    });
-    $(window).imagesLoaded(function () {
-        wow.init();
     });
 
 
@@ -462,5 +441,129 @@
 
 
 
+    $("#formFacture").submit(function(e){
+
+        console.log($("#InputNom").val());
+        $("#formFacture").validate();
+        if($("#InputNom").val()==""){
+            var contentFancy = "Le formulaire n'est pas conforme, merci de corriger";
+            $.fancybox.open('<div>'+contentFancy+'</div>');
+            return false;
+        }
+
+            e.preventDefault();
+
+            $("#saveFactureButton").html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Chargement...').addClass('disabled');
+
+
+            $.post("save-invoice.php",
+                {
+                    nom: $("#InputNom").val(),
+                    email: $("#InputEmail1").val(),
+                    tel: $("#InputTel").val(),
+                    invoice: $("#InputInvoice").val(),
+                    amount: $("#InputAmount").val(),
+                    mail: $("#mailCheck").is(":checked"),
+                }, function(data, status){
+                console.log(data)
+                console.log(data.data);
+                $("#saveFactureButton").html('Enregistrer le réglement').removeClass('disabled');
+                $.fancybox.close();
+                if(data.error!=undefined){
+                    var contentFancy = "Erreur dans votre formulaire.";
+                }else{
+                    var contentFancy = "<h3>La facture a été enregistrée</h3>";
+                    contentFancy += "Voici le lien à communiquer à votre client : <br/>";
+                    var lienFancy = "https://www.broadband.cm/facture/paie-facture.php?id="+data.data.codeInvoice;
+                    contentFancy += "<a href='"+lienFancy+"' target=='_blank'>"+lienFancy+"</a>"; 
+                }
+                $.fancybox.open('<div>'+contentFancy+'</div>');
+                $("#InputNom").val("");
+                $("#InputEmail1").val("");
+                $("#InputTel").val("");
+                $("#InputInvoice").val("");
+                $("#InputAmount").val("");
+
+            });
+        });
+
+
+    $("#paiementOrangeMoney").submit(function(e){
+
+        e.preventDefault();
+        $("#paiementOrangeMoney").validate();
+        if($("#orangeTel").val()==""){
+            var contentFancy = "Le formulaire n'est pas conforme, merci de corriger";
+            $.fancybox.open('<div>'+contentFancy+'</div>');
+            return false;
+        }
+
+        
+
+        $("#submitOrangeForm").html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Chargement...').addClass('disabled');
+
+
+        $.post("paiement-interneOM.php",
+            {
+                Nom: $("#invoiceNom").val(),
+                NumberInvoice: $("#invoiceNumber").val(),
+                Tel: $("#orangeTel").val(),
+                amount: $("#invoiceAmount").val(),
+            }, function(data, status){
+            console.log(data)
+            $("#submitOrangeForm").html('Payer').removeClass('disabled');
+            if(data==null){
+                $.fancybox.open('<div"><h2>Erreur</h2>Vérifier les éléments de votre formulaire</div>');
+            }else{
+                if(data.status=="PENDING"){
+                    $.fancybox.close();
+                    $.fancybox.open('<div>Vous avez reçu les éléments de paiement sur ce numéro de téléphone<br/>Après votre paiement, vous recevrez un <strong>mail de confirmation</strong>.</div>');
+                    console.log("Confirmer");
+                }
+                if(data.status=="FAILED"){
+                    $.fancybox.open('<div"><h2>Erreur</h2>Vérifier les éléments de votre formulaire</div>');
+                    console.log("Erreur");
+                }
+            }
+        });
+    });
+
+    $("#paiementYup").submit(function(e){
+
+        e.preventDefault();
+        $("#paiementYup").validate();
+        if($("#yupTel").val()==""){
+            var contentFancy = "Le formulaire n'est pas conforme, merci de corriger";
+            $.fancybox.open('<div>'+contentFancy+'</div>');
+            return false;
+        }
+
+        
+
+        $("#submitYupForm").html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Chargement...').addClass('disabled');
+
+
+        $.post("paiement-interneYup.php",
+            {
+                Nom: $("#invoiceNom").val(),
+                NumberInvoice: $("#invoiceNumber").val(),
+                Tel: $("#yupTel").val(),
+                amount: $("#invoiceAmount").val(),
+            }, function(data, status){
+            console.log(data)
+            console.log(data.data);
+            $("#submitYupForm").html('Payer').removeClass('disabled');
+            if(data.status=="PENDING"){
+                $.fancybox.close();
+                $.fancybox.open('<div>Vous avez reçu les éléments de paiement sur ce numéro de téléphone<br/>Après votre paiement, vous recevrez un <strong>mail de confirmation</strong>.</div>');
+                console.log("Confirmer");
+            }
+            if(data.status=="FAILED"){
+                $.fancybox.open('<div"><h2>Erreur</h2>Vérifier les éléments de votre formulaire</div>');
+                console.log("Erreur");
+            }
+
+        });
+    });
 
 }(jQuery));
