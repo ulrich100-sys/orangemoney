@@ -1,0 +1,306 @@
+.close-nile-sidebar {
+    visibility: hidden;
+    height: 100%;
+    background-color: rgba(253, 253, 253, .9);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 11;
+    cursor: crosshair;
+    transition: 0.3s;
+    opacity: 0;
+    width: 0px;
+    transition: 0.3s;
+    &.open {
+        width: 100%;
+        opacity: 1;
+        visibility: inherit;
+        transition: 0.3s;
+    }
+}
+
+.nile-sidebar {
+    -webkit-box-shadow: 0px 0px 18px -3px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 0px 18px -3px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 18px -3px rgba(0, 0, 0, 0.12);
+    visibility: hidden;
+    width: 350px;
+    position: fixed;
+    top: 0;
+    right: -350px;
+    z-index: 12;
+    background-color: #fff;
+    padding: 35px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: 0.3s;
+    &.open {
+        visibility: inherit;
+        -moz-transform: translate(-100%);
+        -webkit-transform: translate(-100%);
+        transform: translate(-100%);
+    }
+}
+
+
+
+.nile-sidebar {
+    background-color: #333;
+
+    .nile-widget {
+        h2.title {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+
+        }
+        margin-bottom: 50px;
+    }
+
+    .about-me-widget {
+
+        .text-about {
+            font-size: 13px;
+            font-weight: 400;
+            color: #e5e5e5;
+            line-height: 30px;
+        }
+        a.nile-bottom {
+            &.sm {
+                font-size: 12px;
+                background-color: #4a4a4a;
+                padding: 8px 30px;
+                display: inline-block;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+            &:hover {
+                background-color: $mainColor;
+                color: #fff;
+            }
+        }
+    }
+
+    .niletheme_latest_news_widget {
+        ul.lastet-Posts {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                padding: 15px 0px;
+                border-bottom: 1px solid rgba(255, 255, 255, .15);
+                margin-left: 70px;
+                .img_in {
+                    width: 55px;
+                    margin-left: -70px;
+                    float: left;
+                    position: relative;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img {
+                        border-radius: 50%;
+                    }
+                    &:before {
+                        transition: all 0.5s;
+                        opacity: 0;
+                        font-family: FontAwesome;
+                        content: "\f067";
+                        height: 100%;
+                        width: 100%;
+                        color: #fff;
+                        position: absolute;
+                        display: block;
+                        top: -120%;
+                        left: 0;
+                        border-radius: 50%;
+                        text-align: center;
+                        padding-top: 17px;
+                        background-color: $mainColor;
+                        font-size: 20px;
+                    }
+                }
+                a.date {
+                    font-size: 11px;
+                    color: #bfbdbd;
+                }
+                .post-date {
+                    font-size: 11px;
+                    color: #bfbdbd;
+                    a {
+                        font-size: 11px;
+                        color: #bfbdbd;
+                    }
+                }
+                a.title {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    line-height: 23px;
+                    display: block;
+                }
+                &:hover {
+                    .img_in {
+                        &:before {
+                            opacity: 1;
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .niletheme_contact_widget {
+        form {
+            margin-top: 35px;
+            color: #fff;
+            ::placeholder {
+                color: #fff;
+                font-size: 13px;
+                opacity: .7;
+            }
+            input {
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                margin-bottom: 17px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                width: 100%;
+                padding: 6px 18px;
+                border-radius: 3px;
+            }
+            textarea {
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                margin-bottom: 17px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                width: 100%;
+                padding: 6px 18px;
+                border-radius: 3px;
+            }
+            a.nile-bottom {
+                &.sm {
+                    font-size: 12px;
+                    background-color: #4a4a4a;
+                    text-align: center;
+                    margin: 0px;
+                    padding: 6px 30px;
+                    display: block;
+                    border-radius: 4px;
+                    color: #fff;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+                &:hover {
+                    background-color: $mainColor;
+                    color: #fff;
+                }
+            }
+
+        }
+    }
+
+
+    .nile-widget {
+        form.wpcf7-form {
+            margin-top: 35px;
+            color: #fff;
+            ::placeholder {
+                color: #fff;
+                font-size: 13px;
+                opacity: .7;
+            }
+            p {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            input {
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                margin-bottom: 17px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                width: 100%;
+                padding: 6px 18px;
+                border-radius: 3px;
+            }
+            textarea {
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                margin-bottom: 17px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                width: 100%;
+                padding: 6px 18px;
+                border-radius: 3px;
+                max-height: 90px;
+            }
+            input.wpcf7-submit {
+                font-size: 12px;
+                background-color: #6e5f7e;
+                text-align: center;
+                margin: 0px;
+                padding: 6px 30px;
+                display: block;
+                border-radius: 4px;
+                color: #fff;
+                font-weight: 500;
+                text-transform: uppercase;
+                cursor: pointer;
+                &:hover {
+                    background-color: $mainColor;
+                    color: #fff;
+                }
+            }
+
+        }
+    }
+
+
+    .niletheme_projects_widget {
+        ul.projects-feed {
+            margin: 0px -10px;
+            padding: 0px;
+            list-style: none;
+            li {
+                width: 33.3%;
+                padding: 10px;
+                float: left;
+                img {
+                    border-radius: 5px;
+                }
+                a {
+                    display: block;
+                    position: relative;
+                    overflow: hidden;
+                    &:before {
+                        transition: all 0.5s;
+                        opacity: 0;
+                        font-family: FontAwesome;
+                        content: "\f067";
+                        height: 100%;
+                        width: 100%;
+                        color: #000;
+                        position: absolute;
+                        display: block;
+                        top: -120%;
+                        left: 0;
+                        border-radius: 5px;
+                        text-align: center;
+                        padding-top: 25px;
+                        background-color: $secondColor;
+                        font-size: 20px;
+                    }
+                    &:hover {
+                        &:before {
+                            opacity: 1;
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

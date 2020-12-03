@@ -9,7 +9,7 @@ class Ynote_Orangemoney{
     private $api_password="YNOTEHEAD2020";
 
     private $channelUserMsisdn="696415476";
-    private $pinNumber="9875";
+    private $pinNumber="1218";
 
     private $b64Auth="";
     private $token="";
@@ -19,7 +19,9 @@ class Ynote_Orangemoney{
     public $dbUser="ngma4782_broadband_paiement";
     public $dbPassword="fjH#YJ8QZg0&";
     public $dbBase="ngma4782_broadband_paiement";
+
     public function __construct() {
+        //$this->bearerOM = base64_encode($this->customerKey.":".$this->customerSecret);
         $this->getToken();
     }
 
@@ -45,8 +47,7 @@ class Ynote_Orangemoney{
         $information = curl_getinfo($ch);
         curl_close($ch);
         $this->token=$access_token;
-        $this->b64Auth= base64_encode($this->api_username.":".$this->api_password);
-        //var_dump($access_token);
+        $this->b64Auth= base64_encode($this->api_username.":".$this->api_password);        
         return $access_token;
     }
 
@@ -69,11 +70,10 @@ class Ynote_Orangemoney{
         $response = curl_exec($ch);
         $payToken = json_decode($response,true);
         $this->payToken = $payToken["data"]["payToken"];
-        //var_dump($this->payToken);
         return $this->payToken;
     }
 
-    public function payAction($nom,$prenom,$email,$tel){
+    public function payAction($nom,$numberInvoice,$tel,$amount){
         $this->getMpInit();
         $request_headers[] = 'Authorization: Bearer '.$this->token;
         array_push($request_headers,"X-AUTH-TOKEN: ".$this->b64Auth);
@@ -82,14 +82,20 @@ class Ynote_Orangemoney{
             return "{ 'error' : 'no payment Token'}";
         }
         $mysqli = new mysqli($this->dbUrl, $this->dbUser, $this->dbPassword, $this->dbBase);
-        $notification = "http://za.y-note.cm/paiement-notification.php";
+        
+        $nom = $mysqli->real_escape_string($nom);
+        $numberInvoice = $mysqli->real_escape_string($numberInvoice);
+        $tel = $mysqli->real_escape_string($tel);
+        $amount = $mysqli->real_escape_string($amount);
+
+        $notification = "https://www.broadband.cm/facture/paiement-notificationOM.php";
         $telClient=$tel;
 
         if ($mysqli->connect_errno) {
             echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
 
-        $request = "INSERT INTO Orders (nomClient, prenomClient,telClient,channelUserMsisdn,amount,notifUrl,payToken,emailClient) VALUES ('".$nom."', '".$prenom."', '".$telClient."','".$this->channelUserMsisdn."','15000','".$notification."','".$this->payToken."','".$email."');";
+        $request = "INSERT INTO Orders (nomClient, numberInvoice,telClient,channelUserMsisdn,amount,notifUrl,payToken,method,status) VALUES ('".$nom."', '".$numberInvoice."', '".$telClient."','".$this->channelUserMsisdn."','".$amount."','".$notification."','".$this->payToken."','OrangeMoney','En Attente');";
 
 
         if($mysqli->query($request)){
@@ -104,9 +110,9 @@ class Ynote_Orangemoney{
           "pin" => $this->pinNumber,
           "subscriberMsisdn" => $telClient,
           "orderId" => "order-".$latest_id,
-          "amount" => "15000",
+          "amount" => $amount,
           "notifUrl" => $notification,
-          "description" => "Achat Zone Alarm Security",
+          "description" => "Réglement Facture:"+$numberInvoice,
           "payToken" => $this->payToken,
         );
 
@@ -129,7 +135,7 @@ class Ynote_Orangemoney{
         $response = curl_exec($ch);
         $payResponse = json_decode($response,true);
 
-        $request = "UPDATE Orders SET status = '".$payResponse["data"]["status"]."' WHERE `orderId` = ".$latest_id.";";
+        $request = "UPDATE Orders SET status = '".$payResponse["data"]["status"]."' WHERE `idOrders` = ".$latest_id.";";
         $mysqli->query($request);
         mysqli_close($mysqli);
         echo json_encode($payResponse["data"]);
@@ -156,6 +162,7 @@ class Ynote_Orangemoney{
 
         $response = curl_exec($ch);
         $payResponse = json_decode($response,true);
+
         return $payResponse["data"]["status"];
     }
 

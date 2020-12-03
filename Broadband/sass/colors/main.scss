@@ -122,7 +122,15 @@ footer{
     }
 }
 
-
+footer.layout-1{
+    background-color:#fafafa;
+}
+.paiement-failed{
+    a{
+        text-decoration:underline;
+        color: $mainColor;
+    }
+}
 @media screen and (max-width: 640px) {
     .padding-tb-120px{
         padding-top:10px;

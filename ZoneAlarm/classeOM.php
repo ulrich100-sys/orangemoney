@@ -9,7 +9,7 @@ class Ynote_Orangemoney{
     private $api_password="YNOTEHEAD2020";
 
     private $channelUserMsisdn="696415476";
-    private $pinNumber="9875";
+    private $pinNumber="1218";
 
     private $b64Auth="";
     private $token="";

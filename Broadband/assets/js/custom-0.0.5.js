@@ -476,6 +476,7 @@
                     contentFancy += "Voici le lien à communiquer à votre client : <br/>";
                     var lienFancy = "https://www.broadband.cm/facture/paie-facture.php?id="+data.data.codeInvoice;
                     contentFancy += "<a href='"+lienFancy+"' target=='_blank'>"+lienFancy+"</a>"; 
+                    contentFancy += "<img src='./qrcode/"+data.data.codeInvoice+".png' />"; 
                 }
                 $.fancybox.open('<div>'+contentFancy+'</div>');
                 $("#InputNom").val("");
@@ -552,16 +553,15 @@
             }, function(data, status){
             console.log(data)
             console.log(data.data);
+            $("#paiementYup").attr("action", "https://" + data.tagPayUrl+".tagpay.fr/api/online");
             $("#submitYupForm").html('Payer').removeClass('disabled');
-            if(data.status=="PENDING"){
-                $.fancybox.close();
-                $.fancybox.open('<div>Vous avez reçu les éléments de paiement sur ce numéro de téléphone<br/>Après votre paiement, vous recevrez un <strong>mail de confirmation</strong>.</div>');
-                console.log("Confirmer");
-            }
-            if(data.status=="FAILED"){
-                $.fancybox.open('<div"><h2>Erreur</h2>Vérifier les éléments de votre formulaire</div>');
-                console.log("Erreur");
-            }
+            $("#merchandIdYup").val(data.merchantid);
+            $("#refYup").val(data.refYup+"-"+data.refid);
+            $("#sessionIdYup").val(data.session);
+
+            // Execute default action
+            setTimeout(() => {  console.log("World!"); }, 10000);
+            e.currentTarget.submit();
 
         });
     });

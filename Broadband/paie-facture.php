@@ -11,6 +11,10 @@ if(isset($_GET['id'])){
     $_SESSION['invoice']=null;
 }
 
+if(($_SESSION['invoice']!=null)&&($_SESSION['invoice']['idOrder'])){
+    $_SESSION['invoice']=null;
+}
+
 ?>
 
 
@@ -110,7 +114,18 @@ if(isset($_GET['id'])){
 
     <div class="nile-page-title">
         <div class="container">
-            <h1>Réglez votre facture</h1>
+            <?php 
+
+            if($_SESSION['invoice']==""){
+            ?>
+                <h1>Votre facture est déjà réglée</h1>
+            <?php       
+            }else{
+            ?>
+                <h1>Réglez votre facture</h1>
+            <?php 
+                }
+            ?>
         </div>
     </div>
 
@@ -138,7 +153,7 @@ if(isset($_GET['id'])){
 
                     <p>
                         <label><strong>Montant à régler : </strong></label>
-                        <?php echo number_format ($_SESSION['invoice']["montant"], 0, ',', ' '); ?>
+                        <?php echo number_format ($_SESSION['invoice']["montant"], 0, ',', ' '); ?> Fcfa
                         <input type="hidden" name="amount" id="invoiceAmount" value="<?php echo $_SESSION['invoice']["montant"] ?>"/>
                     </p>
 
@@ -161,7 +176,7 @@ if(isset($_GET['id'])){
                                    <form id="paiementOrangeMoney">
                                       <div class="form-group">
                                         <label for="exampleInputEmail1">Numéro de téléphone</label>
-                                        <input type="tel" class="form-control" id="orangeTel" aria-describedby="Entrer un numéro de téléphone Camerounais du réseau Orange" value="<?php echo $_SESSION['invoice']["telClient"]; ?>" minlength="9" required>
+                                        <input type="tel" class="form-control" id="orangeTel" aria-describedby="Entrer un numéro de téléphone Camerounais du réseau Orange" value="<?php echo preg_replace('/\s+/', '',$_SESSION['invoice']["telClient"]); ?>" minlength="9" required>
                                         <small id="emailHelp" class="form-text text-muted">Vous recevrez une demande d'appel de fond du montant correspondant</small>
                                       </div>
                                       <button type="submit" id="submitOrangeForm" class="btn btn-lg btn-block btn-success">Payer</button>
@@ -179,20 +194,24 @@ if(isset($_GET['id'])){
                             </div>
                             <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordion3" style="">
                                 <div class="card-body">
-                                  
-                                   <form id="paiementYup">
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail1">Numéro de téléphone</label>
-                                        <input type="text" class="form-control" id="yupTel" aria-describedby="Entrer un numéro de téléphone Camerounais du réseau Orange" value="<?php echo $_SESSION['invoice']["telClient"]; ?>">
-                                        <small id="emailHelp" class="form-text text-muted">Vous recevrez une demande d'appel de fond du montant correspondant</small>
-                                      </div>
-                                      <button type="submit" id="submitYupForm" class="btn btn-lg btn-block btn-success">Payer</button>
-                                    </form>
+                                   <form id="paiementYup" action="https://<TagPayUrl>/api/online.php"  method="post" >
+                                    <input type="hidden" name="merchantid" id="merchandIdYup" value="">
+                                    <input type="hidden" name="sessionid" id="sessionIdYup" value="">
+                                    <input type="hidden" name="amount" value="<?php echo $_SESSION['invoice']["montant"] ?>">
+                                    <input type="hidden" name="currency" value="950">
+                                    <input type="hidden" name="purchaseref" id="refYup" value="PURCHASE0987">
+                                    <input type="hidden" name="description" value="<?php echo 'Facture :'.$_SESSION["invoice"]["invoiceNumber"]; ?>">
+                                    <input type="hidden" name="accepturl"
+                                    value="http://broadband.y-note.cm/Broadband/paiement-accept.php?id=<?php echo $_GET['id']?>">
+                                    <input type="hidden" name="cancelurl" value="http://broadband.y-note.cm/Broadband/paiement-failed.php?id=<?php echo $_GET['id']?>">
+                                    <input type="hidden" name="declineurl" value="http://broadband.y-note.cm/Broadband/paiement-failed.php?id=<?php echo $_GET['id']?>">
+                                  <button type="submit" id="submitYupForm" class="btn btn-lg btn-block btn-success">Payer</button>
+                                </form>
 
                                   </div>
                             </div>
                         </div>
-
+<?php /*
                         <div class="card">
                             <div class="card-header" id="headingThree3">
                                 <h5 class="mb-0">
@@ -206,7 +225,7 @@ if(isset($_GET['id'])){
                             </div>
                         </div>
                     </div>
-
+*/?>
                 </div>
 
             </div>

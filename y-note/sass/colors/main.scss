@@ -1,0 +1,154 @@
+$mainColor: #859422;
+$secondColor:#bdd22b;
+$thirdColor:#d7f5a6;
+
+$baColor1: #fffee5;
+$baColor2: #e5fad7;
+$baColor3: #fef1f4;
+
+
+.firo-title.layout-3 h2.title:before,
+.fizo-icon-box.layout-5:hover .icon,
+.background-second-color,
+.about-slider .owl-nav button.owl-prev,
+.about-slider .owl-nav button.owl-next,
+.firo-portfolio.layout-2 .info {
+    background-color: $secondColor;
+}
+
+.firo-portfolio.layout-2 .info {
+    border: 10px solid #222;
+}
+
+.about-slider .owl-nav button.owl-prev,
+.about-slider .owl-nav button.owl-next {
+    color: #fff;
+}
+
+.background-main-color,
+.fizo-image.layout-1:before,
+.nile-bottom.layout-1,
+.about-slider .owl-nav button.owl-next:hover,
+.about-slider .owl-nav button.owl-prev:hover {
+    background-color: $mainColor;
+}
+
+
+.section-ba-1 {
+    background-color: #fff;
+}
+
+.section-ba-2 {
+    background-color: #f3f3f3;
+    background-image: url(../../../assets/img/ba_section_2.jpg);
+    background-size: cover;
+}
+
+.section-ba-4 {
+    background-color: $secondColor;
+    background-image: url(../../../assets/img/call_action_ba.png);
+    background-attachment: fixed;
+}
+
+
+
+
+.section-ba-3 {
+    background-color: #f3f3f3;
+}
+
+.about-me-banner {
+    background-image: url(http://placehold.it/1920x980);
+}
+
+.footer_1_ba {
+    background-color: #fff;
+    background-image: url(../../../assets/img/footer_1_ba.jpg);
+    background-size: cover;
+}
+
+
+.nile-page-title {
+    background-image: url(../../../assets/img/green-background-with-halftone-effect-squares_23-2148661430.jpg);
+    background-size: cover;
+}
+
+
+.process-ba-1 {
+    background-color: #f5ad3f;
+}
+
+.process-ba-2 {
+    background-color: #570a74;
+}
+
+.process-ba-3 {
+    background-color: #26afc1;
+}
+
+.process-ba-4 {
+    background-color: #595959;
+}
+
+.go-top:hover{
+    background-color: $mainColor;
+}
+
+
+.niletheme_contact_widget{
+    p{
+        label{
+            color:#FFF;
+        }
+        color:#FFF;
+        a{
+            color: $mainColor;
+            &:hover{
+                color: #FFF;
+            }
+        }
+    }
+}
+
+footer{
+    a{
+        color: $mainColor;
+    }
+}
+
+.fizo-call-action.layout-1 {
+    &:before {
+        background-image: url(http://placehold.it/1920x1200);
+    }
+}
+
+footer.layout-1{
+    background-color:#fafafa;
+}
+.paiement-failed{
+    a{
+        text-decoration:underline;
+        color: $mainColor;
+    }
+}
+
+header #logo{
+    padding: 0px 0px;
+    top: 100px;
+    position: absolute;
+}
+
+#header-logo{
+    min-height:110px;
+}
+
+@media screen and (max-width: 640px) {
+    .padding-tb-120px{
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    footer.layout-1{
+    padding:10px 0px;
+    }
+}

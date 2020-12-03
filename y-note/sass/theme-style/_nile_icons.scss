@@ -1,0 +1,33 @@
+.header-icon {
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin: auto;
+    background-size: cover;
+    &.cart {
+        background-image: url(../../assets/icons/shopping-bag.svg);
+    }
+    &.menu {
+        background-image: url(../../assets/icons/menu.svg);
+    }
+    &.search {
+        background-image: url(../../assets/icons/search.svg);
+    }
+}
+
+.header-icon-dark {
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin: auto;
+    background-size: cover;
+    &.cart {
+        background-image: url(../../assets/icons/shopping-bag-dark.svg);
+    }
+    &.menu {
+        background-image: url(../../assets/icons/menu-dark.svg);
+    }
+    &.search {
+        background-image: url(../../assets/icons/search-dark.svg);
+    }
+}

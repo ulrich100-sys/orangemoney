@@ -5,8 +5,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include("php-mailjet-v3-simple.class.php");
-require_once("classeOM-Sandbox.php");
-//require_once("classeOM.php");
+//require_once("classeOM-Sandbox.php");
+require_once("classeOM.php");
 $om = new Ynote_Orangemoney();
 $mysqli = new mysqli($om->dbUrl, $om->dbUser, $om->dbPassword, $om->dbBase);
 $request = "select * from Orders where method='OrangeMoney' and status!='FAILED' and status!='EXPIRED' and status!='SUCCESSFULL';";
@@ -40,8 +40,8 @@ if ($result->num_rows > 0) {
                     $params = array(
                         "method" => "POST",
                         "from" => "hosting@y-note.cm",
-                        "to" => $email,
-                        "subject" => "Paiement de votre Facture Broadband :".$invoice['invoiceNumber'],
+                        "to" => $invoice['emailClient'],
+                        "subject" => "Réglement de votre Facture Broadband :".$invoice['invoiceNumber'],
                         "cc" => array("sales@y-note.cm","contact@broadband.cm"),
                         "html" => $message
                     );

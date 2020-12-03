@@ -1,0 +1,114 @@
+ #rev_slider_28_1 .zeus.tparrows {
+     cursor: pointer;
+     min-width: 70px;
+     min-height: 70px;
+     position: absolute;
+     display: block;
+     z-index: 100;
+     border-radius: 50%;
+     overflow: hidden;
+     background: rgba(0, 0, 0, 0.1)
+ }
+
+ #rev_slider_28_1 .zeus.tparrows:before {
+     font-family: "revicons";
+     font-size: 20px;
+     color: rgb(255, 255, 255);
+     display: block;
+     line-height: 70px;
+     text-align: center;
+     z-index: 2;
+     position: relative
+ }
+
+ #rev_slider_28_1 .zeus.tparrows.tp-leftarrow:before {
+     content: "\e824"
+ }
+
+ #rev_slider_28_1 .zeus.tparrows.tp-rightarrow:before {
+     content: "\e825"
+ }
+
+ #rev_slider_28_1 .zeus .tp-title-wrap {
+     background: rgba(0, 0, 0, 0.5);
+     width: 100%;
+     height: 100%;
+     top: 0px;
+     left: 0px;
+     position: absolute;
+     opacity: 0;
+     transform: scale(0);
+     -webkit-transform: scale(0);
+     transition: all 0.3s;
+     -webkit-transition: all 0.3s;
+     -moz-transition: all 0.3s;
+     border-radius: 50%
+ }
+
+ #rev_slider_28_1 .zeus .tp-arr-imgholder {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     top: 0px;
+     left: 0px;
+     background-position: center center;
+     background-size: cover;
+     border-radius: 50%;
+     transform: translatex(-100%);
+     -webkit-transform: translatex(-100%);
+     transition: all 0.3s;
+     -webkit-transition: all 0.3s;
+     -moz-transition: all 0.3s
+ }
+
+ #rev_slider_28_1 .zeus.tp-rightarrow .tp-arr-imgholder {
+     transform: translatex(100%);
+     -webkit-transform: translatex(100%)
+ }
+
+ #rev_slider_28_1 .zeus.tparrows:hover .tp-arr-imgholder {
+     transform: translatex(0);
+     -webkit-transform: translatex(0);
+     opacity: 1
+ }
+
+ #rev_slider_28_1 .zeus.tparrows:hover .tp-title-wrap {
+     transform: scale(1);
+     -webkit-transform: scale(1);
+     opacity: 1
+ }
+
+ .hermes.tp-bullets {}
+
+ .hermes .tp-bullet {
+     overflow: hidden;
+     border-radius: 50%;
+     width: 16px;
+     height: 16px;
+     background-color: rgba(0, 0, 0, 0);
+     box-shadow: inset 0 0 0 2px rgb(249, 220, 147);
+     -webkit-transition: background 0.3s ease;
+     transition: background 0.3s ease;
+     position: absolute
+ }
+
+ .hermes .tp-bullet:hover {
+     background-color: rgba(255, 255, 255, 0.21)
+ }
+
+ .hermes .tp-bullet:after {
+     content: ' ';
+     position: absolute;
+     bottom: 0;
+     height: 0;
+     left: 0;
+     width: 100%;
+     background-color: rgb(249, 220, 147);
+     box-shadow: 0 0 1px rgb(249, 220, 147);
+     -webkit-transition: height 0.3s ease;
+     transition: height 0.3s ease
+ }
+
+ .hermes .tp-bullet.selected:after {
+     height: 100%
+ }

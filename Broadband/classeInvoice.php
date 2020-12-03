@@ -1,6 +1,7 @@
 <?php
 
 include("php-mailjet-v3-simple.class.php");
+include("lib/phpqrcode/qrlib.php");
 
 class Ynote_Invoice{
 
@@ -99,6 +100,9 @@ class Ynote_Invoice{
 
         $this->sendMailInvoice($sendMail,$responseJson["data"]);
         mysqli_close($mysqli);
+                // Traitement QR Code
+        QRcode::png('https://www.broadband.cm/facture/paie-facture.php?id='.$codeInvoice, './qrcode/'.$codeInvoice.'.png', QR_ECLEVEL_H,5);
+        $responseJson["Qr"]='qrcode/'.$codeInvoice.'.png';
         echo json_encode($responseJson);
     }
 

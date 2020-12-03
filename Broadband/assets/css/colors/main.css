@@ -78,6 +78,13 @@ footer a {
 .fizo-call-action.layout-1:before {
   background-image: url(http://placehold.it/1920x1200); }
 
+footer.layout-1 {
+  background-color: #fafafa; }
+
+.paiement-failed a {
+  text-decoration: underline;
+  color: #79a531; }
+
 @media screen and (max-width: 640px) {
   .padding-tb-120px {
     padding-top: 10px;
