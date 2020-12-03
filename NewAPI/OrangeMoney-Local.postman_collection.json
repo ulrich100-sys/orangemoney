@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "f5e93cfe-7592-4498-8358-389bf3043653",
+		"name": "OrangeMoney-Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1-Token",
+			"item": [
+				{
+					"name": "GetAccessToken",
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": true,
+						"followRedirects": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Y4fnts08nzqpXgah40VvkcoMj2sa",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "gqPrgXw6JWPoZSGktid8bir8vOIa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://apiw.orange.cm/token",
+							"protocol": "https",
+							"host": [
+								"apiw",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"token"
+							]
+						},
+						"description": "Generation de tocket Orange Money"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccessToken-base64",
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": true,
+						"followRedirects": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Basic Z3FQcmdYdzZKV1BvWlNHa3RpZDhiaXI4dk9JYTpZNGZudHMwOG56cXBYZ2FoNDBWdmtjb01qMnNh"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://apiw.orange.cm/token",
+							"protocol": "https",
+							"host": [
+								"apiw",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"token"
+							]
+						},
+						"description": "Generation de tocket Orange Money"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "MerchantPayment",
+			"item": [
+				{
+					"name": "MerchantRequest-/mp-init",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "e7226988-cc08-3448-ab36-b936c2491e3b",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"value": "WU5PVEVQUkVQUk9EOllOT1RFUFJFUFJPRDIwMjA=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/init",
+							"protocol": "https",
+							"host": [
+								"apiw",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"init"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				},
+				{
+					"name": "MerchantRequest-/mp-pay",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "cea13fd7-8173-3c68-873f-bf07a8b9532d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"type": "text",
+								"value": "WU5PVEVQUkVQUk9EOllOT1RFUFJFUFJPRDIwMjA="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notifUrl\": \"https://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": \"1500\",\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order12345\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP2009013153A11CC5D7A8940A6F\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/pay",
+							"protocol": "https",
+							"host": [
+								"apiw",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"pay"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				},
+				{
+					"name": "MerchantRequest-/mp-paymentstatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "cea13fd7-8173-3c68-873f-bf07a8b9532d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"type": "text",
+								"value": "WU5PVEVQUkVQUk9EOllOT1RFUFJFUFJPRDIwMjA="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notifUrl\": \"http://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": 150,\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP2009013E66312E7580BC840363\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/pay",
+							"protocol": "https",
+							"host": [
+								"apiw",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"pay"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				},
+				{
+					"name": "MerchantRequest-/mp-push",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "cea13fd7-8173-3c68-873f-bf07a8b9532d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"type": "text",
+								"value": "WU5PVEVQUkVQUk9EOllOT1RFUFJFUFJPRDIwMjA="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notifUrl\": \"http://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": 150,\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP2009013E66312E7580BC840363\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/pay",
+							"protocol": "https",
+							"host": [
+								"apiw",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"pay"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
