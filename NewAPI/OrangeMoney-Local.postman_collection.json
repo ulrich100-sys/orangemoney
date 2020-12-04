@@ -156,7 +156,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "cea13fd7-8173-3c68-873f-bf07a8b9532d",
+									"value": "11f1a564-4c4b-31c6-980c-3053ad710bfc",
 									"type": "string"
 								}
 							]
@@ -171,7 +171,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"notifUrl\": \"https://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": \"1500\",\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order12345\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP2009013153A11CC5D7A8940A6F\"\n}",
+							"raw": "{\n  \"notifUrl\": \"https://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": \"1\",\n  \"subscriberMsisdn\": \"690092381\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP201203F9A7ED42BEFCAB8B2523\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -199,18 +199,21 @@
 				},
 				{
 					"name": "MerchantRequest-/mp-paymentstatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "cea13fd7-8173-3c68-873f-bf07a8b9532d",
+									"value": "11f1a564-4c4b-31c6-980c-3053ad710bfc",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "X-AUTH-TOKEN",
@@ -220,7 +223,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"notifUrl\": \"http://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": 150,\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP2009013E66312E7580BC840363\"\n}",
+							"raw": "{\n  \"notifUrl\": \"http://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": 150,\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order123456\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP200901EDB0DEA09F1BDAB4FA64\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -228,7 +231,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/pay",
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/paymentstatus/MP201203F9A7ED42BEFCAB8B2523",
 							"protocol": "https",
 							"host": [
 								"apiw",
@@ -239,7 +242,8 @@
 								"omcoreapis",
 								"1.0.2",
 								"mp",
-								"pay"
+								"paymentstatus",
+								"MP201203F9A7ED42BEFCAB8B2523"
 							]
 						},
 						"description": "Merchant Request en fonction de l'access_token"
@@ -259,7 +263,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "X-AUTH-TOKEN",
@@ -267,17 +271,8 @@
 								"value": "WU5PVEVQUkVQUk9EOllOT1RFUFJFUFJPRDIwMjA="
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"notifUrl\": \"http://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": 150,\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP2009013E66312E7580BC840363\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/pay",
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/push/ddaklmd",
 							"protocol": "https",
 							"host": [
 								"apiw",
@@ -288,7 +283,8 @@
 								"omcoreapis",
 								"1.0.2",
 								"mp",
-								"pay"
+								"push",
+								"ddaklmd"
 							]
 						},
 						"description": "Merchant Request en fonction de l'access_token"
