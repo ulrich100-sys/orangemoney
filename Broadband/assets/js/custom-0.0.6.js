@@ -522,7 +522,7 @@
                     console.log("Confirmer");
                 }
                 if(data.status=="FAILED"){
-                    $.fancybox.open('<div"><h2>Erreur</h2>Vérifier les éléments de votre formulaire</div>');
+                    $.fancybox.open('<div"><h2>Erreur</h2><p>Vérifier les éléments de votre formulaire</p><p>'+data.inittxnmessage+'</p></div>');
                     console.log("Erreur");
                 }
             }

@@ -3,17 +3,19 @@ set_time_limit(0);
 class Ynote_Orangemoney{
 
     private $urlAPI="https://api-s1.orange.cm/";
-    private $bearerOM = "M3lZV0pxYWJhUjhIelhRUzk4VmVQeEg1NmFRYTpBMkF0OEJUQ2JQTnJ6X1M3VHhmOHRnWFhYandh";
+    private $customerKey = "vEsq4ORgr2W4jjOdNLhR0Zp20Awa";
+    private $customerSecret = "DuIMtcqoMKnpoKU78nL08UhfQp4a";
     
     private $api_username="YNOTEHEAD";
     private $api_password="YNOTEHEAD2020";
 
-    private $channelUserMsisdn="696415476";
-    private $pinNumber="1218";
+    private $channelUserMsisdn="690354104";
+    private $pinNumber="2086";
 
     private $b64Auth="";
     private $token="";
     private $payToken="";
+
 
     public $dbUrl="109.234.164.131";
     public $dbUser="ngma4782_broadband_paiement";

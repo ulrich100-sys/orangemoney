@@ -82,6 +82,11 @@ class Ynote_Orangemoney{
             return "{ 'error' : 'no payment Token'}";
         }
         $mysqli = new mysqli($this->dbUrl, $this->dbUser, $this->dbPassword, $this->dbBase);
+        $nom = $mysqli->real_escape_string($nom);
+        $prenom = $mysqli->real_escape_string($prenom);
+        $email = $mysqli->real_escape_string($email);
+        $tel = $mysqli->real_escape_string($tel);
+
         $notification = "http://za.y-note.cm/paiement-notification.php";
         $telClient=$tel;
 

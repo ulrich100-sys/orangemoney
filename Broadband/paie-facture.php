@@ -202,9 +202,9 @@ if(($_SESSION['invoice']!=null)&&($_SESSION['invoice']['idOrder'])){
                                     <input type="hidden" name="purchaseref" id="refYup" value="PURCHASE0987">
                                     <input type="hidden" name="description" value="<?php echo 'Facture :'.$_SESSION["invoice"]["invoiceNumber"]; ?>">
                                     <input type="hidden" name="accepturl"
-                                    value="http://broadband.y-note.cm/Broadband/paiement-accept.php?id=<?php echo $_GET['id']?>">
-                                    <input type="hidden" name="cancelurl" value="http://broadband.y-note.cm/Broadband/paiement-failed.php?id=<?php echo $_GET['id']?>">
-                                    <input type="hidden" name="declineurl" value="http://broadband.y-note.cm/Broadband/paiement-failed.php?id=<?php echo $_GET['id']?>">
+                                    value="https://www.broadband.cm/facture/yup-confirmation.php?id=<?php echo $_GET['id']?>">
+                                    <input type="hidden" name="cancelurl" value="https://www.broadband.cm/facture/yup-cancel.php?id=<?php echo $_GET['id']?>">
+                                    <input type="hidden" name="declineurl" value="https://www.broadband.cm/facture/yup-decline.php?id=<?php echo $_GET['id']?>">
                                   <button type="submit" id="submitYupForm" class="btn btn-lg btn-block btn-success">Payer</button>
                                 </form>
 
@@ -334,7 +334,7 @@ if(($_SESSION['invoice']!=null)&&($_SESSION['invoice']['idOrder'])){
         <!-- Fancy Box JS File -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="assets/js/jquery.fancybox.min.js"></script>
-    <script src="assets/js/custom-0.0.5.js"></script>
+    <script src="assets/js/custom-0.0.6.js"></script>
 </body>
 
 </html>

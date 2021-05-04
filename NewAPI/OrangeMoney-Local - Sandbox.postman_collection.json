@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "f5e93cfe-7592-4498-8358-389bf3043653",
-		"name": "OrangeMoney-Local",
+		"name": "OrangeMoney-Local - Sandbox",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -20,12 +20,12 @@
 							"basic": [
 								{
 									"key": "password",
-									"value": "Y4fnts08nzqpXgah40VvkcoMj2sa",
+									"value": "VYqX2CEyEtTTsJDtDKxRfLjHodMa",
 									"type": "string"
 								},
 								{
 									"key": "username",
-									"value": "gqPrgXw6JWPoZSGktid8bir8vOIa",
+									"value": "A6F8Dhp9SbGP9WtkRpTCY70UD8Ya",
 									"type": "string"
 								}
 							]
@@ -61,7 +61,7 @@
 				{
 					"name": "GetAccessToken-base64",
 					"protocolProfileBehavior": {
-						"followOriginalHttpMethod": true,
+						"followOriginalHttpMethod": false,
 						"followRedirects": true
 					},
 					"request": {
@@ -73,7 +73,7 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Basic Z3FQcmdYdzZKV1BvWlNHa3RpZDhiaXI4dk9JYTpZNGZudHMwOG56cXBYZ2FoNDBWdmtjb01qMnNh"
+								"value": "Basic QTZGOERocDlTYkdQOVd0a1JwVENZNzBVRDhZYTpWWXFYMkNFeUV0VFRzSkR0REt4UmZMakhvZE1h"
 							}
 						],
 						"body": {
@@ -116,7 +116,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "e7226988-cc08-3448-ab36-b936c2491e3b",
+									"value": "d006ee29-2d38-3867-91d0-de7e2fca6cf8",
 									"type": "string"
 								}
 							]
@@ -156,7 +156,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "11f1a564-4c4b-31c6-980c-3053ad710bfc",
+									"value": "d006ee29-2d38-3867-91d0-de7e2fca6cf8",
 									"type": "string"
 								}
 							]
@@ -171,7 +171,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"notifUrl\": \"https://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": \"1\",\n  \"subscriberMsisdn\": \"690092381\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP201203F9A7ED42BEFCAB8B2523\"\n}",
+							"raw": "{\n  \"notifUrl\": \"https://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": \"1\",\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP201221D07E7209F8F2E9366E01\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,7 +208,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "11f1a564-4c4b-31c6-980c-3053ad710bfc",
+									"value": "d006ee29-2d38-3867-91d0-de7e2fca6cf8",
 									"type": "string"
 								}
 							]
@@ -231,7 +231,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/paymentstatus/MP201203F9A7ED42BEFCAB8B2523",
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/paymentstatus/MP201221D07E7209F8F2E9366E01",
 							"protocol": "https",
 							"host": [
 								"apiw",
@@ -243,7 +243,7 @@
 								"1.0.2",
 								"mp",
 								"paymentstatus",
-								"MP201203F9A7ED42BEFCAB8B2523"
+								"MP201221D07E7209F8F2E9366E01"
 							]
 						},
 						"description": "Merchant Request en fonction de l'access_token"
@@ -258,7 +258,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "cea13fd7-8173-3c68-873f-bf07a8b9532d",
+									"value": "d006ee29-2d38-3867-91d0-de7e2fca6cf8",
 									"type": "string"
 								}
 							]
@@ -272,7 +272,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/push/ddaklmd",
+							"raw": "https://apiw.orange.cm/omcoreapis/1.0.2/mp/push/MP201221D07E7209F8F2E9366E01",
 							"protocol": "https",
 							"host": [
 								"apiw",
@@ -284,7 +284,7 @@
 								"1.0.2",
 								"mp",
 								"push",
-								"ddaklmd"
+								"MP201221D07E7209F8F2E9366E01"
 							]
 						},
 						"description": "Merchant Request en fonction de l'access_token"
@@ -293,6 +293,28 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dbf0f914-a0b6-4da2-835a-522b5104f033",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6d3fab6f-bf3b-47de-8b5b-948dd0857fea",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}

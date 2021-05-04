@@ -474,9 +474,10 @@
                 }else{
                     var contentFancy = "<h3>La facture a été enregistrée</h3>";
                     contentFancy += "Voici le lien à communiquer à votre client : <br/>";
-                    var lienFancy = "https://www.broadband.cm/facture/paie-facture.php?id="+data.data.codeInvoice;
+                    var lienFancy = "https://www.y-note.cm/facture/paie-facture.php?id="+data.data.codeInvoice;
                     contentFancy += "<a href='"+lienFancy+"' target=='_blank'>"+lienFancy+"</a><br/>"; 
                     contentFancy += "<img src='./qrcode/"+data.data.codeInvoice+".png' />"; 
+                       
                 }
                 $.fancybox.open('<div>'+contentFancy+'</div>');
                 $("#InputNom").val("");
@@ -565,5 +566,49 @@
 
         });
     });
+
+     // Create an instance of the Stripe object with your publishable API key
+      var stripe = Stripe('pk_live_ZsdBt5oU6pqvQRpx1LzTBT9h');
+      var checkoutButton = document.getElementById('submitStripeForm');
+
+      var stripeFormElment = {
+        Nom: $("#invoiceNom").val(),
+        invoiceNum: $("#numFacture").val(),
+        purchaseref: $("#purchaseref").val(),
+        amount: $("#invoiceAmount").val(),
+        emailFacture: $("#emailFacture").val()
+      };
+
+      if($("#invoiceAmount").val()<0.5*655.957){
+        $("#submitStripeForm").html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Impossible de payer ce montant par Carte').addClass('disabled');
+      }
+
+      checkoutButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        $("#submitStripeForm").html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Chargement...').addClass('disabled');
+        // Create a new Checkout Session using the server-side endpoint you
+        // created in step 3.
+        fetch('./paiement-interneStripe.php', {
+          method: 'POST',
+          body: JSON.stringify(stripeFormElment)
+        })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(session) {
+          return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(function(result) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, you should display the localized error message to your
+          // customer using `error.message`.
+          if (result.error) {
+            alert(result.error.message);
+          }
+        })
+        .catch(function(error) {
+          console.error('Error:', error);
+        });
+      });
 
 }(jQuery));

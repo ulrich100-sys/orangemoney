@@ -86,7 +86,7 @@
         <!-- Fancy Box JS File -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="assets/js/jquery.fancybox.min.js"></script>
-    <script src="assets/js/custom-0.0.8.js"></script>
+    <script src="assets/js/custom-0.0.7.js"></script>
 </body>
 
 </html>

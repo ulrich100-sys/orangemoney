@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "076a85e8-d693-4a18-9c07-9e9f24960873",
+		"name": "OrangeMoney-Local Production",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1-Token",
+			"item": [
+				{
+					"name": "GetAccessToken",
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": true,
+						"followRedirects": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "11o_GnrSJipJ0dczJaGGSLCU_Wka",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "gtsB80XBqYfS6zW4qgtsoTyhKGAa",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-s1.orange.cm/token",
+							"protocol": "https",
+							"host": [
+								"api-s1",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"token"
+							]
+						},
+						"description": "Generation de tocket Orange Money"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "MerchantPayment",
+			"item": [
+				{
+					"name": "MerchantRequest-/mp-init",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1981edf5-f447-3734-b3a4-7eef7ee1b440",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"value": "WU5PVEVIRUFEOllOT1RFSEVBRDIwMjA=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-s1.orange.cm/omcoreapis/1.0.2/mp/init",
+							"protocol": "https",
+							"host": [
+								"api-s1",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"init"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				},
+				{
+					"name": "MerchantRequest-/mp-pay",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1981edf5-f447-3734-b3a4-7eef7ee1b440",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"type": "text",
+								"value": "WU5PVEVIRUFEOllOT1RFSEVBRDIwMjA="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notifUrl\": \"https://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"690892120\",\n  \"amount\": \"1\",\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2830\",\n  \"orderId\": \"order1234\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP201221933BBCDB615D55EB4F2D\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-s1.orange.cm/omcoreapis/1.0.2/mp/pay",
+							"protocol": "https",
+							"host": [
+								"api-s1",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"pay"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				},
+				{
+					"name": "MerchantRequest-/mp-paymentstatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1981edf5-f447-3734-b3a4-7eef7ee1b440",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"type": "text",
+								"value": "WU5PVEVIRUFEOllOT1RFSEVBRDIwMjA="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notifUrl\": \"http://www.y-note.cm/notification\",\n  \"channelUserMsisdn\": \"691301143\",\n  \"amount\": 150,\n  \"subscriberMsisdn\": \"693600164\",\n  \"pin\": \"2222\",\n  \"orderId\": \"order123456\",\n  \"description\": \"Commande 12345\",\n  \"payToken\": \"MP200901EDB0DEA09F1BDAB4FA64\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-s1.orange.cm/omcoreapis/1.0.2/mp/paymentstatus/MP201221933BBCDB615D55EB4F2D",
+							"protocol": "https",
+							"host": [
+								"api-s1",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"paymentstatus",
+								"MP201221933BBCDB615D55EB4F2D"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				},
+				{
+					"name": "MerchantRequest-/mp-push",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1981edf5-f447-3734-b3a4-7eef7ee1b440",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-AUTH-TOKEN",
+								"type": "text",
+								"value": "WU5PVEVIRUFEOllOT1RFSEVBRDIwMjA="
+							}
+						],
+						"url": {
+							"raw": "https://api-s1.orange.cm/omcoreapis/1.0.2/mp/push/MP201221933BBCDB615D55EB4F2D",
+							"protocol": "https",
+							"host": [
+								"api-s1",
+								"orange",
+								"cm"
+							],
+							"path": [
+								"omcoreapis",
+								"1.0.2",
+								"mp",
+								"push",
+								"MP201221933BBCDB615D55EB4F2D"
+							]
+						},
+						"description": "Merchant Request en fonction de l'access_token"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

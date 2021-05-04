@@ -10,8 +10,6 @@ define('OM_URL_WP', OM_PROTOCOL . '://' . OM_HOST . '/' . OM_CONTEXT_REQUESTWP);
 $request_headers = array();
 $request_headers[] = 'Authorization: Basic '.$this->authorizationHeader;
 
-$request_headers = array();
-$request_headers[] = 'Authorization: Basic '.$this->authorizationHeader;
 /*** Construction de la première requête de gestion des Access Token */
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, OM_URL_AT);
